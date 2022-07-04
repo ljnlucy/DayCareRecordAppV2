@@ -55,3 +55,7 @@ class timeSheet : Identifiable{
     var Out : Date?
     var day : String?
 }
+
+class randowm {
+    var name : String?
+}
