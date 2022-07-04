@@ -13,6 +13,7 @@ struct homeView: View {
     
     var body: some View {
         if daycare.signedInStatus == false{
+            
             LoginView()
                 .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { publish in
                     daycare.autoSignOutAfterTenMinutes()
