@@ -9,7 +9,7 @@ import SwiftUI
 
 struct schoolInformationTabView: View {
     var body: some View {
-        NavigationView{
+        VStack{
                 Form{
                     Section {
                         Text("Thank you for your interest in Beloved Children Academy. We aim to serve our students and their families in a God-honoring, professional manner every day.")
@@ -61,7 +61,7 @@ struct schoolInformationTabView: View {
                 .onAppear {
                   UITableView.appearance().backgroundColor = .clear
                 }
-                .padding(.horizontal)
+                
         
             
             

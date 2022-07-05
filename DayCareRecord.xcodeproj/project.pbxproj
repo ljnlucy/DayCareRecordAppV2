@@ -43,6 +43,7 @@
 		D8040A5028713CB0002C0946 /* TeacherListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8040A4D28713CAF002C0946 /* TeacherListView.swift */; };
 		D8040A5128713CB0002C0946 /* classRoomListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8040A4E28713CB0002C0946 /* classRoomListView.swift */; };
 		D8040A5428713CDF002C0946 /* ProfileImageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8040A5328713CDF002C0946 /* ProfileImageHandler.swift */; };
+		D87BEA082873EB020032365D /* updateProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87BEA072873EB020032365D /* updateProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +82,7 @@
 		D8040A4E28713CB0002C0946 /* classRoomListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = classRoomListView.swift; sourceTree = "<group>"; };
 		D8040A5328713CDF002C0946 /* ProfileImageHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileImageHandler.swift; sourceTree = "<group>"; };
 		D8040A55287141A7002C0946 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		D87BEA072873EB020032365D /* updateProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = updateProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +158,7 @@
 				D8040A2A28713BE8002C0946 /* SheetViews */,
 				D8040A2728713BA8002C0946 /* schoolInformation tab */,
 				D8040A1E28713B04002C0946 /* main tab view */,
+				D87BEA072873EB020032365D /* updateProfileView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				D8040A5028713CB0002C0946 /* TeacherListView.swift in Sources */,
 				D8040A2228713B37002C0946 /* TimeSheetView.swift in Sources */,
 				D8040A3328713BF6002C0946 /* StudentQuickView.swift in Sources */,
+				D87BEA082873EB020032365D /* updateProfileView.swift in Sources */,
 				D8040A3628713BF6002C0946 /* addTeacherProfileSheet.swift in Sources */,
 				D8040A2428713B52002C0946 /* TimeSheetViewStudent.swift in Sources */,
 				D8040A5128713CB0002C0946 /* classRoomListView.swift in Sources */,

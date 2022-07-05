@@ -730,4 +730,11 @@ class DayCareClass: ObservableObject{
             }
         }
     }
+    
+    func updateTeacherProfileName(name : String) -> Void {
+        db.collection("Teacher List").document(selectedTeacher.UID!).setData(["name" : name], merge: true)
+    }
+    func updateTeacherProfileNickName(nickName : String) -> Void {
+        db.collection("Teacher List").document(selectedTeacher.UID!).setData(["nickName" : nickName], merge: true)
+    }
 }

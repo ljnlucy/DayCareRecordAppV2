@@ -12,6 +12,7 @@ struct largeCardView: View {
     @EnvironmentObject var daycare : DayCareClass
     var teacher : Teacher
     
+    
     var body: some View {
         NavigationLink {
             SingleTeacherDetailView()
@@ -48,6 +49,9 @@ struct largeCardView: View {
             
             
         }
+        
+        
+
     }
 }
 

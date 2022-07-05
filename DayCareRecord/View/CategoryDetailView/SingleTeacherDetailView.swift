@@ -34,8 +34,31 @@ struct SingleTeacherDetailView: View {
                 VStack(alignment:.leading){
                     Divider()
                     Text("Profile").bold().foregroundColor(.gray)
-                    Text("Name: " + (daycare.selectedTeacher.name ?? ""))
-                    Text("Nick Name: " + (daycare.selectedTeacher.nickName ?? ""))
+                    
+                    NavigationLink {
+                        updateProfileView(category : "teacher", field : "name")
+                    } label: {
+                        HStack{
+                            Text("Name: " + (daycare.selectedTeacher.name ?? ""))
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                        }
+                        .accentColor(.black)
+                        
+                    }
+                    NavigationLink {
+                        updateProfileView(category : "teacher", field : "nickName")
+                    } label: {
+                        HStack{
+                            Text("Nick Name: " + (daycare.selectedTeacher.nickName ?? ""))
+                            Spacer()
+                            Image(systemName: "chevron.right")
+                        }
+                        .accentColor(.black)
+                        
+                    }
+                    
+                    
                     Divider()
                 }
                 
