@@ -737,4 +737,30 @@ class DayCareClass: ObservableObject{
     func updateTeacherProfileNickName(nickName : String) -> Void {
         db.collection("Teacher List").document(selectedTeacher.UID!).setData(["nickName" : nickName], merge: true)
     }
+    /*                                          */
+    func updateStudentProfileName(newValue : String) -> Void {
+        db.collection("Student List").document(selectedStudent.UID!).setData(["studentName" : newValue], merge: true)
+    }
+    
+    func updateStudentProfileNickName(newValue : String) -> Void {
+        db.collection("Student List").document(selectedStudent.UID!).setData(["nickName" : newValue], merge: true)
+    }
+    func updateStudentProfileGuardianName(newValue : String) -> Void {
+        db.collection("Student List").document(selectedStudent.UID!).setData(["guardianName" : newValue], merge: true)
+    }
+    func updateStudentProfileGuardianPhone(newValue : String) -> Void {
+        db.collection("Student List").document(selectedStudent.UID!).setData(["guardianPhone" : newValue], merge: true)
+    }
+    func updateStudentProfileGuardianEmail(newValue : String) -> Void {
+        db.collection("Student List").document(selectedStudent.UID!).setData(["guardianEmail" : newValue], merge: true)
+    }
+    func updateStudentProfileGuardian2Name(newValue : String) -> Void {
+        db.collection("Student List").document(selectedStudent.UID!).setData(["guardian2Name" : newValue], merge: true)
+    }
+    func updateStudentProfileGuardian2Phone(newValue : String) -> Void {
+        db.collection("Student List").document(selectedStudent.UID!).setData(["guardian2Phone" : newValue], merge: true)
+    }
+    func updateStudentProfileGuardian2Email(newValue : String) -> Void {
+        db.collection("Student List").document(selectedStudent.UID!).setData(["guardian2Email" : newValue], merge: true)
+    }
 }

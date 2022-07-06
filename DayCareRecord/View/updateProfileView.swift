@@ -12,6 +12,7 @@ struct updateProfileView: View {
     @State var newValue : String = ""
     @State var category: String = ""
     @State var field : String = ""
+    @Binding var selectedLinkIndex : Int?
     var body: some View {
         VStack(alignment:.leading){
             TextField("Enter new value here", text: $newValue).font(.largeTitle)
@@ -31,6 +32,51 @@ struct updateProfileView: View {
                         return
                     }
                 }
+                else if category == "student"{
+                    switch field {
+                    case "name":
+                        if newValue != "" {
+                            daycare.updateStudentProfileName(newValue: newValue)
+                        }
+                    case "nickName":
+                        if newValue != "" {
+                            daycare.updateStudentProfileNickName(newValue: newValue)
+                        }
+                    case "Guardian":
+                        if newValue != "" {
+                            daycare.updateStudentProfileGuardianName(newValue: newValue)
+                        }
+                        
+                    case "Phone":
+                        if newValue != "" {
+                            daycare.updateStudentProfileGuardianPhone(newValue: newValue)
+                        }
+                        
+                    case "Email":
+                        if newValue != "" {
+                            daycare.updateStudentProfileGuardianEmail(newValue: newValue)
+                        }
+                        
+                    case "Guardian2":
+                        if newValue != "" {
+                            daycare.updateStudentProfileGuardian2Name(newValue: newValue)
+                        }
+                        
+                    case "Phone2":
+                        if newValue != "" {
+                            daycare.updateStudentProfileGuardian2Phone(newValue: newValue)
+                        }
+                        
+                    case "Email2":
+                        if newValue != "" {
+                            daycare.updateStudentProfileGuardian2Email(newValue: newValue)
+                        }
+                    default:
+                        return
+                    }
+                }
+                
+                selectedLinkIndex = nil
             } label: {
                 Text("Confirm").font(.largeTitle)
             }
@@ -39,8 +85,4 @@ struct updateProfileView: View {
     }
 }
 
-struct updateProfileView_Previews: PreviewProvider {
-    static var previews: some View {
-        updateProfileView()
-    }
-}
+

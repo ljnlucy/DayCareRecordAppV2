@@ -11,6 +11,7 @@ struct SingleStudentDetailView: View {
     @EnvironmentObject var daycare : DayCareClass
     @State var selectedMonth : Int = 1
     @State var selectedClass : String = ""
+    @State var selectedLinkIndex : Int?
 
     var body: some View {
         ScrollView(){
@@ -35,15 +36,91 @@ struct SingleStudentDetailView: View {
                     Divider()
                     Group{
                         Text("Profile").bold().foregroundColor(.gray)
-                        Text("Name: " + (daycare.selectedStudent.studentName ?? ""))
-                        Text("Nick Name: " + (daycare.selectedStudent.nickName ?? ""))
-                        Text("Guardian: " + (daycare.selectedStudent.guardianName ?? ""))
-                        Text("Phone: " + "\(daycare.selectedStudent.guardianPhone ?? "")")
-                        Text("Email: " + (daycare.selectedStudent.guardianEmail ?? ""))
-                        Text("Guardian2: " + (daycare.selectedStudent.guardian2Name ?? ""))
-                        Text("Phone2: " + "\(daycare.selectedStudent.guardian2Phone ?? "")")
-                        Text("Email2: " + (daycare.selectedStudent.guardian2Email ?? ""))
-                    }
+                        
+                        NavigationLink(tag : 0, selection : $selectedLinkIndex) {
+                            updateProfileView(category : "student", field : "name", selectedLinkIndex: $selectedLinkIndex)
+                        } label: {
+                            HStack{
+                                Text("Name: " + (daycare.selectedStudent.studentName ?? ""))
+                                Spacer()
+                                Image(systemName: "chevron.right")
+                            }
+                        }
+
+                        NavigationLink(tag : 1, selection : $selectedLinkIndex) {
+                            updateProfileView(category : "student", field : "nickName", selectedLinkIndex: $selectedLinkIndex)
+                        } label: {
+                            HStack{
+                                Text("Nick Name: " + (daycare.selectedStudent.nickName ?? ""))
+                                Spacer()
+                                Image(systemName: "chevron.right")
+                            }
+                        }
+                        
+                        NavigationLink(tag : 2, selection : $selectedLinkIndex) {
+                            updateProfileView(category : "student", field : "Guardian", selectedLinkIndex: $selectedLinkIndex)
+                        } label: {
+                            HStack{
+                                Text("Guardian: " + (daycare.selectedStudent.guardianName ?? ""))
+                                Spacer()
+                                Image(systemName: "chevron.right")
+                            }
+                        }
+                        
+                        
+                        NavigationLink(tag : 3, selection : $selectedLinkIndex) {
+                            updateProfileView(category : "student", field : "Phone", selectedLinkIndex: $selectedLinkIndex)
+                        } label: {
+                            HStack{
+                                Text("Phone: " + "\(daycare.selectedStudent.guardianPhone ?? "")")
+                                Spacer()
+                                Image(systemName: "chevron.right")
+                            }
+                        }
+                        
+                        NavigationLink(tag : 4, selection : $selectedLinkIndex) {
+                            updateProfileView(category : "student", field : "Email", selectedLinkIndex: $selectedLinkIndex)
+                        } label: {
+                            HStack{
+                                Text("Email: " + (daycare.selectedStudent.guardianEmail ?? ""))
+                                Spacer()
+                                Image(systemName: "chevron.right")
+                            }
+                        }
+                        
+                        
+                        NavigationLink(tag : 5, selection : $selectedLinkIndex) {
+                            updateProfileView(category : "student", field : "Guardian2", selectedLinkIndex: $selectedLinkIndex)
+                        } label: {
+                            HStack{
+                                Text("Guardian2: " + (daycare.selectedStudent.guardian2Name ?? ""))
+                                Spacer()
+                                Image(systemName: "chevron.right")
+                            }
+                        }
+                        
+                        NavigationLink(tag : 6, selection : $selectedLinkIndex){
+                            updateProfileView(category : "student", field : "Phone2", selectedLinkIndex: $selectedLinkIndex)
+                        } label: {
+                            HStack{
+                                Text("Phone2: " + "\(daycare.selectedStudent.guardian2Phone ?? "")")
+                                Spacer()
+                                Image(systemName: "chevron.right")
+                            }
+                        }
+                        
+                        
+                        NavigationLink(tag : 7, selection : $selectedLinkIndex) {
+                            updateProfileView(category : "student", field : "Email2", selectedLinkIndex: $selectedLinkIndex)
+                        } label: {
+                            HStack{
+                                Text("Email2: " + (daycare.selectedStudent.guardian2Email ?? ""))
+                                Spacer()
+                                Image(systemName: "chevron.right")
+                            }
+                        }
+                        
+                    }.accentColor(.black)
                     
                     Divider()
                 }

@@ -12,6 +12,8 @@ struct SingleTeacherDetailView: View {
     @EnvironmentObject var daycare : DayCareClass
     @State var selectedMonth : Int = 1
     @State var selectedClass : String = ""
+    @State var selectedLinkIndex : Int?
+    
     var body: some View {
         ScrollView(){
             VStack(alignment : .leading){
@@ -35,19 +37,18 @@ struct SingleTeacherDetailView: View {
                     Divider()
                     Text("Profile").bold().foregroundColor(.gray)
                     
-                    NavigationLink {
-                        updateProfileView(category : "teacher", field : "name")
-                    } label: {
+                    NavigationLink(destination: updateProfileView(category : "teacher", field : "name", selectedLinkIndex: $selectedLinkIndex), tag: 0, selection: $selectedLinkIndex) {
                         HStack{
                             Text("Name: " + (daycare.selectedTeacher.name ?? ""))
                             Spacer()
                             Image(systemName: "chevron.right")
                         }
                         .accentColor(.black)
-                        
                     }
-                    NavigationLink {
-                        updateProfileView(category : "teacher", field : "nickName")
+                    
+                    
+                    NavigationLink(tag: 1, selection: $selectedLinkIndex) {
+                        updateProfileView(category : "teacher", field : "nickName", selectedLinkIndex: $selectedLinkIndex)
                     } label: {
                         HStack{
                             Text("Nick Name: " + (daycare.selectedTeacher.nickName ?? ""))
@@ -55,8 +56,9 @@ struct SingleTeacherDetailView: View {
                             Image(systemName: "chevron.right")
                         }
                         .accentColor(.black)
-                        
                     }
+
+                    
                     
                     
                     Divider()
