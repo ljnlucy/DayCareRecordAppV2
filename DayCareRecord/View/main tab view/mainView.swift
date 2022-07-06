@@ -24,7 +24,7 @@ struct mainTabView: View {
             ScrollView{
                 VStack{
                     
-                    Text("Welcome to Beloved Daycare")
+                    Text("Welcome to Beloved Children Adademy")
                         .font(.title3)
                         .foregroundColor(.white)
                     

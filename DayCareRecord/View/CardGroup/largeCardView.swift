@@ -11,10 +11,10 @@ struct largeCardView: View {
     /// large card for teacher/student/classroom list view,
     @EnvironmentObject var daycare : DayCareClass
     var teacher : Teacher
-    
+    @Binding var selectedLinkIndex : String?
     
     var body: some View {
-        NavigationLink {
+        NavigationLink(tag : teacher.UID!, selection : $selectedLinkIndex) {
             SingleTeacherDetailView()
                 .onAppear {
                     daycare.selectedTeacher = teacher

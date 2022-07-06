@@ -11,6 +11,7 @@ struct TeacherListView: View {
     @EnvironmentObject var daycare : DayCareClass
     @Binding var showTeacherListView : Bool
     @State var isAddTeacherSheetShow : Bool = false
+    @State var selectedLinkIndex : String?
     var body: some View {
         if daycare.teacherList.count == 0{
             ScrollView{
@@ -42,10 +43,17 @@ struct TeacherListView: View {
                    
                     ForEach(daycare.teacherList){ teacher in
                         // add large Card view
-                        largeCardView(teacher: teacher)
+                        largeCardView(teacher: teacher, selectedLinkIndex: $selectedLinkIndex)
 
                     }
                 }
+                .onAppear(perform: {
+                    // it works when ipad is in portrait mode
+                    if daycare.teacherList.count > 0 && daycare.teacherList[0].UID != nil {
+                        selectedLinkIndex = daycare.teacherList[0].UID!
+                    }
+                    
+                })
                 .padding()
                 .navigationTitle("Teacher List")
                 .toolbar {
