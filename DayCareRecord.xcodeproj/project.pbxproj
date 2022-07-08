@@ -18,32 +18,9 @@
 		D8040A00287135A4002C0946 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80409FF287135A4002C0946 /* Model.swift */; };
 		D8040A04287136A6002C0946 /* DayCareClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8040A03287136A6002C0946 /* DayCareClass.swift */; };
 		D8040A06287136B0002C0946 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8040A05287136AF002C0946 /* ImagePicker.swift */; };
-		D8040A1B28713A98002C0946 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8040A1A28713A98002C0946 /* LoginView.swift */; };
-		D8040A1D28713ACC002C0946 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8040A1C28713ACC002C0946 /* SignUpView.swift */; };
-		D8040A2028713B18002C0946 /* mainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8040A1F28713B18002C0946 /* mainView.swift */; };
-		D8040A2228713B37002C0946 /* TimeSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8040A2128713B37002C0946 /* TimeSheetView.swift */; };
-		D8040A2428713B52002C0946 /* TimeSheetViewStudent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8040A2328713B52002C0946 /* TimeSheetViewStudent.swift */; };
-		D8040A2928713BB7002C0946 /* schoolInformationTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8040A2828713BB7002C0946 /* schoolInformationTabView.swift */; };
-		D8040A3128713BF6002C0946 /* addClassRoomProfileSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8040A2B28713BF6002C0946 /* addClassRoomProfileSheet.swift */; };
-		D8040A3228713BF6002C0946 /* ClassRommQuickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8040A2C28713BF6002C0946 /* ClassRommQuickView.swift */; };
-		D8040A3328713BF6002C0946 /* StudentQuickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8040A2D28713BF6002C0946 /* StudentQuickView.swift */; };
-		D8040A3428713BF6002C0946 /* TeacherQuickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8040A2E28713BF6002C0946 /* TeacherQuickView.swift */; };
-		D8040A3528713BF6002C0946 /* addStudentProfileSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8040A2F28713BF6002C0946 /* addStudentProfileSheet.swift */; };
-		D8040A3628713BF6002C0946 /* addTeacherProfileSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8040A3028713BF6002C0946 /* addTeacherProfileSheet.swift */; };
-		D8040A3E28713C32002C0946 /* largeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8040A3828713C32002C0946 /* largeCardView.swift */; };
-		D8040A3F28713C32002C0946 /* largeCardViewStudent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8040A3928713C32002C0946 /* largeCardViewStudent.swift */; };
-		D8040A4028713C32002C0946 /* largeCardViewClassRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8040A3A28713C32002C0946 /* largeCardViewClassRoom.swift */; };
-		D8040A4128713C32002C0946 /* smallCardViewStudent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8040A3B28713C32002C0946 /* smallCardViewStudent.swift */; };
-		D8040A4228713C32002C0946 /* smallCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8040A3C28713C32002C0946 /* smallCardView.swift */; };
-		D8040A4328713C32002C0946 /* smallCardViewClassRoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8040A3D28713C32002C0946 /* smallCardViewClassRoom.swift */; };
-		D8040A4828713C66002C0946 /* SingleStudentDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8040A4528713C66002C0946 /* SingleStudentDetailView.swift */; };
-		D8040A4928713C66002C0946 /* SingleTeacherDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8040A4628713C66002C0946 /* SingleTeacherDetailView.swift */; };
-		D8040A4A28713C66002C0946 /* singleClassRoomDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8040A4728713C66002C0946 /* singleClassRoomDetailView.swift */; };
-		D8040A4F28713CB0002C0946 /* StudentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8040A4C28713CAF002C0946 /* StudentListView.swift */; };
-		D8040A5028713CB0002C0946 /* TeacherListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8040A4D28713CAF002C0946 /* TeacherListView.swift */; };
-		D8040A5128713CB0002C0946 /* classRoomListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8040A4E28713CB0002C0946 /* classRoomListView.swift */; };
-		D8040A5428713CDF002C0946 /* ProfileImageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8040A5328713CDF002C0946 /* ProfileImageHandler.swift */; };
-		D87BEA082873EB020032365D /* updateProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87BEA072873EB020032365D /* updateProfileView.swift */; };
+		D85093192878B2A000E487D9 /* TeacherListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85093182878B2A000E487D9 /* TeacherListView.swift */; };
+		D850931B2878B41A00E487D9 /* singleTeacherDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D850931A2878B41A00E487D9 /* singleTeacherDetailView.swift */; };
+		D850931D2878C2C300E487D9 /* navigationLandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D850931C2878C2C300E487D9 /* navigationLandingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,33 +33,10 @@
 		D80409FF287135A4002C0946 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		D8040A03287136A6002C0946 /* DayCareClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayCareClass.swift; sourceTree = "<group>"; };
 		D8040A05287136AF002C0946 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
-		D8040A1A28713A98002C0946 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
-		D8040A1C28713ACC002C0946 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
-		D8040A1F28713B18002C0946 /* mainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mainView.swift; sourceTree = "<group>"; };
-		D8040A2128713B37002C0946 /* TimeSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSheetView.swift; sourceTree = "<group>"; };
-		D8040A2328713B52002C0946 /* TimeSheetViewStudent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSheetViewStudent.swift; sourceTree = "<group>"; };
-		D8040A2828713BB7002C0946 /* schoolInformationTabView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = schoolInformationTabView.swift; sourceTree = "<group>"; };
-		D8040A2B28713BF6002C0946 /* addClassRoomProfileSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addClassRoomProfileSheet.swift; sourceTree = "<group>"; };
-		D8040A2C28713BF6002C0946 /* ClassRommQuickView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassRommQuickView.swift; sourceTree = "<group>"; };
-		D8040A2D28713BF6002C0946 /* StudentQuickView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentQuickView.swift; sourceTree = "<group>"; };
-		D8040A2E28713BF6002C0946 /* TeacherQuickView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeacherQuickView.swift; sourceTree = "<group>"; };
-		D8040A2F28713BF6002C0946 /* addStudentProfileSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addStudentProfileSheet.swift; sourceTree = "<group>"; };
-		D8040A3028713BF6002C0946 /* addTeacherProfileSheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addTeacherProfileSheet.swift; sourceTree = "<group>"; };
-		D8040A3828713C32002C0946 /* largeCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = largeCardView.swift; sourceTree = "<group>"; };
-		D8040A3928713C32002C0946 /* largeCardViewStudent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = largeCardViewStudent.swift; sourceTree = "<group>"; };
-		D8040A3A28713C32002C0946 /* largeCardViewClassRoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = largeCardViewClassRoom.swift; sourceTree = "<group>"; };
-		D8040A3B28713C32002C0946 /* smallCardViewStudent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = smallCardViewStudent.swift; sourceTree = "<group>"; };
-		D8040A3C28713C32002C0946 /* smallCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = smallCardView.swift; sourceTree = "<group>"; };
-		D8040A3D28713C32002C0946 /* smallCardViewClassRoom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = smallCardViewClassRoom.swift; sourceTree = "<group>"; };
-		D8040A4528713C66002C0946 /* SingleStudentDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleStudentDetailView.swift; sourceTree = "<group>"; };
-		D8040A4628713C66002C0946 /* SingleTeacherDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleTeacherDetailView.swift; sourceTree = "<group>"; };
-		D8040A4728713C66002C0946 /* singleClassRoomDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = singleClassRoomDetailView.swift; sourceTree = "<group>"; };
-		D8040A4C28713CAF002C0946 /* StudentListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudentListView.swift; sourceTree = "<group>"; };
-		D8040A4D28713CAF002C0946 /* TeacherListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeacherListView.swift; sourceTree = "<group>"; };
-		D8040A4E28713CB0002C0946 /* classRoomListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = classRoomListView.swift; sourceTree = "<group>"; };
-		D8040A5328713CDF002C0946 /* ProfileImageHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileImageHandler.swift; sourceTree = "<group>"; };
 		D8040A55287141A7002C0946 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		D87BEA072873EB020032365D /* updateProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = updateProfileView.swift; sourceTree = "<group>"; };
+		D85093182878B2A000E487D9 /* TeacherListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherListView.swift; sourceTree = "<group>"; };
+		D850931A2878B41A00E487D9 /* singleTeacherDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = singleTeacherDetailView.swift; sourceTree = "<group>"; };
+		D850931C2878C2C300E487D9 /* navigationLandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = navigationLandingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,15 +104,9 @@
 			isa = PBXGroup;
 			children = (
 				D80409E9287133BC002C0946 /* homeView.swift */,
-				D8040A1928713A52002C0946 /* LaunchSignUpLoginView */,
-				D8040A5228713CD3002C0946 /* ImageHandler */,
-				D8040A4B28713CA4002C0946 /* CategoryListView */,
-				D8040A4428713C56002C0946 /* CategoryDetailView */,
-				D8040A3728713C27002C0946 /* CardGroup */,
-				D8040A2A28713BE8002C0946 /* SheetViews */,
-				D8040A2728713BA8002C0946 /* schoolInformation tab */,
-				D8040A1E28713B04002C0946 /* main tab view */,
-				D87BEA072873EB020032365D /* updateProfileView.swift */,
+				D85093182878B2A000E487D9 /* TeacherListView.swift */,
+				D850931A2878B41A00E487D9 /* singleTeacherDetailView.swift */,
+				D850931C2878C2C300E487D9 /* navigationLandingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -170,87 +118,6 @@
 				D8040A05287136AF002C0946 /* ImagePicker.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		D8040A1928713A52002C0946 /* LaunchSignUpLoginView */ = {
-			isa = PBXGroup;
-			children = (
-				D8040A1A28713A98002C0946 /* LoginView.swift */,
-				D8040A1C28713ACC002C0946 /* SignUpView.swift */,
-			);
-			path = LaunchSignUpLoginView;
-			sourceTree = "<group>";
-		};
-		D8040A1E28713B04002C0946 /* main tab view */ = {
-			isa = PBXGroup;
-			children = (
-				D8040A1F28713B18002C0946 /* mainView.swift */,
-				D8040A2128713B37002C0946 /* TimeSheetView.swift */,
-				D8040A2328713B52002C0946 /* TimeSheetViewStudent.swift */,
-			);
-			path = "main tab view";
-			sourceTree = "<group>";
-		};
-		D8040A2728713BA8002C0946 /* schoolInformation tab */ = {
-			isa = PBXGroup;
-			children = (
-				D8040A2828713BB7002C0946 /* schoolInformationTabView.swift */,
-			);
-			path = "schoolInformation tab";
-			sourceTree = "<group>";
-		};
-		D8040A2A28713BE8002C0946 /* SheetViews */ = {
-			isa = PBXGroup;
-			children = (
-				D8040A2B28713BF6002C0946 /* addClassRoomProfileSheet.swift */,
-				D8040A2F28713BF6002C0946 /* addStudentProfileSheet.swift */,
-				D8040A3028713BF6002C0946 /* addTeacherProfileSheet.swift */,
-				D8040A2C28713BF6002C0946 /* ClassRommQuickView.swift */,
-				D8040A2D28713BF6002C0946 /* StudentQuickView.swift */,
-				D8040A2E28713BF6002C0946 /* TeacherQuickView.swift */,
-			);
-			path = SheetViews;
-			sourceTree = "<group>";
-		};
-		D8040A3728713C27002C0946 /* CardGroup */ = {
-			isa = PBXGroup;
-			children = (
-				D8040A3828713C32002C0946 /* largeCardView.swift */,
-				D8040A3A28713C32002C0946 /* largeCardViewClassRoom.swift */,
-				D8040A3928713C32002C0946 /* largeCardViewStudent.swift */,
-				D8040A3C28713C32002C0946 /* smallCardView.swift */,
-				D8040A3D28713C32002C0946 /* smallCardViewClassRoom.swift */,
-				D8040A3B28713C32002C0946 /* smallCardViewStudent.swift */,
-			);
-			path = CardGroup;
-			sourceTree = "<group>";
-		};
-		D8040A4428713C56002C0946 /* CategoryDetailView */ = {
-			isa = PBXGroup;
-			children = (
-				D8040A4728713C66002C0946 /* singleClassRoomDetailView.swift */,
-				D8040A4528713C66002C0946 /* SingleStudentDetailView.swift */,
-				D8040A4628713C66002C0946 /* SingleTeacherDetailView.swift */,
-			);
-			path = CategoryDetailView;
-			sourceTree = "<group>";
-		};
-		D8040A4B28713CA4002C0946 /* CategoryListView */ = {
-			isa = PBXGroup;
-			children = (
-				D8040A4E28713CB0002C0946 /* classRoomListView.swift */,
-				D8040A4C28713CAF002C0946 /* StudentListView.swift */,
-				D8040A4D28713CAF002C0946 /* TeacherListView.swift */,
-			);
-			path = CategoryListView;
-			sourceTree = "<group>";
-		};
-		D8040A5228713CD3002C0946 /* ImageHandler */ = {
-			isa = PBXGroup;
-			children = (
-				D8040A5328713CDF002C0946 /* ProfileImageHandler.swift */,
-			);
-			path = ImageHandler;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -332,37 +199,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D8040A3E28713C32002C0946 /* largeCardView.swift in Sources */,
-				D8040A2928713BB7002C0946 /* schoolInformationTabView.swift in Sources */,
-				D8040A4028713C32002C0946 /* largeCardViewClassRoom.swift in Sources */,
-				D8040A4A28713C66002C0946 /* singleClassRoomDetailView.swift in Sources */,
-				D8040A3528713BF6002C0946 /* addStudentProfileSheet.swift in Sources */,
-				D8040A1B28713A98002C0946 /* LoginView.swift in Sources */,
-				D8040A2028713B18002C0946 /* mainView.swift in Sources */,
 				D8040A04287136A6002C0946 /* DayCareClass.swift in Sources */,
-				D8040A4F28713CB0002C0946 /* StudentListView.swift in Sources */,
-				D8040A4828713C66002C0946 /* SingleStudentDetailView.swift in Sources */,
 				D8040A00287135A4002C0946 /* Model.swift in Sources */,
-				D8040A3F28713C32002C0946 /* largeCardViewStudent.swift in Sources */,
-				D8040A3428713BF6002C0946 /* TeacherQuickView.swift in Sources */,
-				D8040A4328713C32002C0946 /* smallCardViewClassRoom.swift in Sources */,
-				D8040A4228713C32002C0946 /* smallCardView.swift in Sources */,
-				D8040A3228713BF6002C0946 /* ClassRommQuickView.swift in Sources */,
-				D8040A1D28713ACC002C0946 /* SignUpView.swift in Sources */,
 				D8040A06287136B0002C0946 /* ImagePicker.swift in Sources */,
-				D8040A3128713BF6002C0946 /* addClassRoomProfileSheet.swift in Sources */,
-				D8040A4928713C66002C0946 /* SingleTeacherDetailView.swift in Sources */,
+				D85093192878B2A000E487D9 /* TeacherListView.swift in Sources */,
 				D80409EA287133BC002C0946 /* homeView.swift in Sources */,
+				D850931B2878B41A00E487D9 /* singleTeacherDetailView.swift in Sources */,
+				D850931D2878C2C300E487D9 /* navigationLandingView.swift in Sources */,
 				D80409E8287133BC002C0946 /* DayCareRecordApp.swift in Sources */,
-				D8040A5428713CDF002C0946 /* ProfileImageHandler.swift in Sources */,
-				D8040A4128713C32002C0946 /* smallCardViewStudent.swift in Sources */,
-				D8040A5028713CB0002C0946 /* TeacherListView.swift in Sources */,
-				D8040A2228713B37002C0946 /* TimeSheetView.swift in Sources */,
-				D8040A3328713BF6002C0946 /* StudentQuickView.swift in Sources */,
-				D87BEA082873EB020032365D /* updateProfileView.swift in Sources */,
-				D8040A3628713BF6002C0946 /* addTeacherProfileSheet.swift in Sources */,
-				D8040A2428713B52002C0946 /* TimeSheetViewStudent.swift in Sources */,
-				D8040A5128713CB0002C0946 /* classRoomListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -491,6 +335,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DayCareRecord/Preview Content\"";
+				DEVELOPMENT_TEAM = UC6S995QQ3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DayCareRecord/Info.plist;
@@ -503,8 +348,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Jianan-Li.DayCareRecord";
+				MARKETING_VERSION = 2;
+				PRODUCT_BUNDLE_IDENTIFIER = JiananLi.DayCareRecord;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -520,6 +365,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"DayCareRecord/Preview Content\"";
+				DEVELOPMENT_TEAM = UC6S995QQ3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DayCareRecord/Info.plist;
@@ -532,8 +378,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "Jianan-Li.DayCareRecord";
+				MARKETING_VERSION = 2;
+				PRODUCT_BUNDLE_IDENTIFIER = JiananLi.DayCareRecord;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

@@ -1,0 +1,62 @@
+//
+//  TeacherListView.swift
+//  DayCareRecord
+//
+//  Created by Jianan Li on 7/8/22.
+//
+
+import SwiftUI
+
+struct TeacherListView: View {
+    @EnvironmentObject var daycare : DayCareClass
+    var body: some View {
+        if daycare.teacherList.count < 2 {
+            Text("No teacher available")
+        }
+        else{
+            NavigationView {
+                List {
+                    
+                        ForEach(daycare.teacherList){ teacher in
+                            NavigationLink {
+                                // single teacher detail view
+                                singleTeacherDetailView(/*teacher: teacher*/)
+                                .onAppear {
+                                        daycare.selectedTeacher = teacher
+                                }
+                            } label: {
+                                HStack{
+                                    
+                                    Circle()
+                                        .foregroundColor(teacher.isCheckedIn ? .green : .red)
+                                        .frame(width: 20, height: 20)
+                                    Text(teacher.name ?? "No name")
+                                    Spacer()
+                                    Image(systemName: "chevron.right")
+                                }
+                            }
+                        }
+                    
+                    
+                }
+                .navigationTitle("Teacher List")
+                .toolbar {
+                    Button {
+                        // show a view to add teacher
+                    } label: {
+                        Image(systemName: "person.crop.circle.badge.plus")
+                    }
+
+                }
+                
+                navigationLandingView()
+            }
+        }
+    }
+}
+
+struct TeacherListView_Previews: PreviewProvider {
+    static var previews: some View {
+        TeacherListView()
+    }
+}

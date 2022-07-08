@@ -9,41 +9,25 @@ import SwiftUI
 
 struct homeView: View {
     @EnvironmentObject var daycare : DayCareClass
-    
+
     
     var body: some View {
-        if daycare.signedInStatus == false{
-            
-            LoginView()
-                .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { publish in
-                    daycare.autoSignOutAfterTenMinutes()
+        TabView{
+            // teacher list view
+            TeacherListView()
+                .tabItem {
+                    HStack{
+                        Image(systemName: "person.text.rectangle")
+                        Text("Teacher")
+                    }
                 }
+                .tag(0)
+                .onAppear(perform: daycare.getTeacherList)
+            
+            // student list view
+            // classroom list view
+            // school information view
         }
-        else if daycare.signedInStatus == true {
-            TabView{
-                mainTabView()
-                    .tabItem {
-                        VStack{
-                            Image(systemName: "house")
-                            Text("Home")
-                        }
-                    }
-                schoolInformationTabView()
-                    .tabItem {
-                        VStack{
-                            Image(systemName: "info.circle")
-                            Text("Information")
-                        }
-                    }
-            }
-            .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { publish in
-                daycare.autoSignOutAfterTenMinutes()
-            }
-        }
-        else{
-            ProgressView("Loading...")
-        }
-        
         
         
     }

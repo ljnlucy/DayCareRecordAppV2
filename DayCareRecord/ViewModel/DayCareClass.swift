@@ -56,6 +56,7 @@ class DayCareClass: ObservableObject{
     var startDate = Calendar.current.date(from: DateComponents(year : 2022, month: 1, day: 1, hour: 0, minute: 0, second: 0))!
     var endDate = Calendar.current.date(from: DateComponents(year : 2022, month: 1, day: 1, hour: 0, minute: 0, second: 0))!
     var dateFormatter : DateFormatter = DateFormatter()
+    @Published var showTimeSheet : Bool = false
     
     
     init() {
@@ -64,8 +65,8 @@ class DayCareClass: ObservableObject{
         dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .none
         addTeacherCollectionListener()
-        addStudentCollectionListener()
-        addclassRoomCollectionListener()
+        //addStudentCollectionListener()
+        //addclassRoomCollectionListener()
     }
     
     func getTeacherList() -> Void {
@@ -88,6 +89,8 @@ class DayCareClass: ObservableObject{
                 }
                 DispatchQueue.main.async {
                     self.teacherList = teachers
+                    print("number of teacher")
+                    print(self.teacherList.count)
                 }
             }
             

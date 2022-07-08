@@ -48,19 +48,7 @@ struct mainTabView: View {
                                 .font(.headline)
                                 .padding(.leading)
                             Spacer()
-                            
-                            Button {
-                                // enable teacher list view flag
-                                showTeacherListView = true
-                                
-                            } label: {
-                                HStack{
-                                    Text("See All").foregroundColor(.white).font(.headline)
-                                    Image(systemName: "chevron.right").padding(.trailing).foregroundColor(.white)
-                                }
-                            }
-
-                            /*
+                           
                             NavigationLink {
                                 TeacherListView()
                             } label: {
@@ -68,7 +56,7 @@ struct mainTabView: View {
                                     Text("See All").foregroundColor(.white).font(.headline)
                                     Image(systemName: "chevron.right").padding(.trailing).foregroundColor(.white)
                                 }
-                            }*/
+                            }
                         }
                         
                         if daycare.teacherList.count == 0{
@@ -90,112 +78,9 @@ struct mainTabView: View {
                             }
                         }
                     }
-                    // student scroll view horizontally
-                    HStack{
-                        Text("Students: ").foregroundColor(.white)
-                            .font(.headline)
-                            .padding(.leading)
-                        Spacer()
-                        /*
-                        NavigationLink {
-                            StudentListView()
-                           
-                        } label: {
-                            HStack{
-                                Text("See All").foregroundColor(.white).font(.headline)
-                                Image(systemName: "chevron.right").padding(.trailing).foregroundColor(.white)
-                            }
-                        }*/
-                        
-                        Button {
-                            // enable teacher list view flag
-                            showStudentListView = true
-                            
-                        } label: {
-                            HStack{
-                                Text("See All").foregroundColor(.white).font(.headline)
-                                Image(systemName: "chevron.right").padding(.trailing).foregroundColor(.white)
-                            }
-                        }
-                    }
-                    if daycare.studentList.count == 0{
-                        ProgressView("loading data ...")
-                    }
-                    else{
-                        ScrollView(.horizontal){
-                            
-                            HStack{
-                                ForEach(daycare.studentList){ student in
-                                    /// small card view
-                                    smallCardViewStudent(isStudentQuickViewShow : $isStudentQuickViewShow, student: student)
-                                }
-                                
-                            }
-                        }
-                        
-                    }
-                    // classroom scroll view horizontally
-                    if daycare.currentSignedInUserRole == "teacher"{
-                        HStack{
-                            Text("Class: ").foregroundColor(.white)
-                                .font(.headline)
-                                .padding(.leading)
-                            Spacer()
-                            
-                            Button {
-                                showClassRoomListView = true
-                            } label: {
-                                HStack{
-                                    Text("See All").foregroundColor(.white).font(.headline)
-                                    Image(systemName: "chevron.right").padding(.trailing).foregroundColor(.white)
-                                }
-                            }
-
-                            
-                            /*
-                            NavigationLink {
-                                classRoomListView()
-                               
-                            } label: {
-                                HStack{
-                                    Text("See All").foregroundColor(.white).font(.headline)
-                                    Image(systemName: "chevron.right").padding(.trailing).foregroundColor(.white)
-                                }
-                                
-                            }*/
-                        }
-                        if daycare.classRoomList.count == 0{
-                            ProgressView("loading data ...")
-                        }
-                        else{
-                            ScrollView(.horizontal){
-                                
-                                HStack{
-                                    ForEach(daycare.classRoomList){ classroom in
-                                        /// small card view
-                                        smallCardViewClassRoom(isClassRoomQuickViewShow : $isClassRoomQuickViewShow, classroom: classroom)
-                                    }
-                                    
-                                }
-                            }
-                            
-                        }
-                    }
+                  
                 }
-                .sheet(isPresented: $isStudentQuickViewShow, onDismiss: nil, content: {
-                    // create a new sheet view to show teacher quick actions
-                    StudentQuickView(isStudentQuickViewShow : $isStudentQuickViewShow)
-                })
-                .sheet(isPresented: $isClassRoomQuickViewShow, onDismiss: nil, content: {
-                    // create a new sheet view to show teacher quick actions
-                    ClassRoomQuickView(isClassRoomQuickViewShow : $isClassRoomQuickViewShow)
-                })
-                /*.background {
-                    Image("background")
-                        .resizable()
-                        .ignoresSafeArea()
-                        .scaledToFill()
-                }*/
+                
                 .navigationBarHidden(false)
                 .navigationTitle("Home screen")
                 .navigationBarTitleDisplayMode(.inline)
@@ -209,15 +94,8 @@ struct mainTabView: View {
                         }.foregroundColor(.white)
                         
                     }
-                    
-                        
-            
-            
                 }
-                .sheet(isPresented: $isTeacherQuickViewShow, onDismiss: nil, content: {
-                    // create a new sheet view to show teacher quick actions
-                    TeacherQuickView(isTeacherQuickViewShow : $isTeacherQuickViewShow)
-                })
+                
             }
             .background {
                 Image("background")
