@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TeacherListView: View {
     @EnvironmentObject var daycare : DayCareClass
+    @State var isAddTeacherSheetShow : Bool = false
     var body: some View {
         if daycare.teacherList.count < 2 {
             Text("No teacher available")
@@ -43,11 +44,18 @@ struct TeacherListView: View {
                 .toolbar {
                     Button {
                         // show a view to add teacher
+                        isAddTeacherSheetShow = true
                     } label: {
                         Image(systemName: "person.crop.circle.badge.plus")
                     }
 
                 }
+                .sheet(isPresented: $isAddTeacherSheetShow) {
+                    
+                } content: {
+                    addTeacherProfileSheet(isAddTeacherSheetShow : $isAddTeacherSheetShow)
+                }
+
                 navigationLandingView()
             }
         }

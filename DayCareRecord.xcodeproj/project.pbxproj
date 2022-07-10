@@ -25,6 +25,7 @@
 		D8509323287A85D400E487D9 /* singleStudentDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8509322287A85D400E487D9 /* singleStudentDetailView.swift */; };
 		D8509325287A8CE300E487D9 /* UpdateProfileSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8509324287A8CE300E487D9 /* UpdateProfileSheet.swift */; };
 		D850CDE7287B5B6C00CE98BC /* addTeacherProfileSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D850CDE6287B5B6C00CE98BC /* addTeacherProfileSheet.swift */; };
+		D850CDE9287B5E8900CE98BC /* addStudentProfileSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D850CDE8287B5E8900CE98BC /* addStudentProfileSheet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		D8509322287A85D400E487D9 /* singleStudentDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = singleStudentDetailView.swift; sourceTree = "<group>"; };
 		D8509324287A8CE300E487D9 /* UpdateProfileSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfileSheet.swift; sourceTree = "<group>"; };
 		D850CDE6287B5B6C00CE98BC /* addTeacherProfileSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addTeacherProfileSheet.swift; sourceTree = "<group>"; };
+		D850CDE8287B5E8900CE98BC /* addStudentProfileSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addStudentProfileSheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 				D850931C2878C2C300E487D9 /* navigationLandingView.swift */,
 				D8509324287A8CE300E487D9 /* UpdateProfileSheet.swift */,
 				D850CDE6287B5B6C00CE98BC /* addTeacherProfileSheet.swift */,
+				D850CDE8287B5E8900CE98BC /* addStudentProfileSheet.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -218,6 +221,7 @@
 				D80409EA287133BC002C0946 /* homeView.swift in Sources */,
 				D850931B2878B41A00E487D9 /* singleTeacherDetailView.swift in Sources */,
 				D850CDE7287B5B6C00CE98BC /* addTeacherProfileSheet.swift in Sources */,
+				D850CDE9287B5E8900CE98BC /* addStudentProfileSheet.swift in Sources */,
 				D850931D2878C2C300E487D9 /* navigationLandingView.swift in Sources */,
 				D8509323287A85D400E487D9 /* singleStudentDetailView.swift in Sources */,
 				D80409E8287133BC002C0946 /* DayCareRecordApp.swift in Sources */,

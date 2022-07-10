@@ -38,21 +38,13 @@ struct addTeacherProfileSheet: View {
                         // use firestore to upload to collection--> create a function to upload teacher profile
                         daycare.createTeacherProfile(name: name, UID: UID, nickName: nickName, originalImage: selectedImage!)
                         isAddTeacherSheetShow = false
-                        
                     }
-                    
-                    
-                    
                 } label: {
                     Text("Add")
                 }
-                
-                
             }
             .padding(.top)
-            
             Section {
-                
                 Image(uiImage: selectedImage ?? UIImage())
                     .resizable()
                     .frame(width: 200, height: 200)
