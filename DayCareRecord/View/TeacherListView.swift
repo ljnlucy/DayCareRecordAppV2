@@ -32,7 +32,7 @@ struct TeacherListView: View {
                                         .frame(width: 20, height: 20)
                                     Text(teacher.name ?? "No name")
                                     Spacer()
-                                    Image(systemName: "chevron.right")
+                                    //Image(systemName: "chevron.right")
                                 }
                             }
                         }
@@ -48,7 +48,6 @@ struct TeacherListView: View {
                     }
 
                 }
-                
                 navigationLandingView()
             }
         }

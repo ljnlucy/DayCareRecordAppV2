@@ -1,26 +1,22 @@
 //
-//  singleTeacherDetailView.swift
+//  singleStudentDetailView.swift
 //  DayCareRecord
 //
-//  Created by Jianan Li on 7/8/22.
+//  Created by Jianan Li on 7/9/22.
 //
 
 import SwiftUI
 
-struct singleTeacherDetailView: View {
+struct singleStudentDetailView: View {
     @EnvironmentObject var daycare : DayCareClass
     @State var selectedMonth : Int = 0
     @State var selectedClass : String = "No Class"
     @State var showTimesheet : Bool = false
-    @State var showUpdateSheet : Bool = false
-    @State var role : String = ""
-    @State var field : String = ""
     
     
     var dateFormatter1 : DateFormatter = DateFormatter()
     var dateFormatter2 : DateFormatter = DateFormatter()
     @State var totalHours : Double = 0.0
-    
     var month : String{
         switch daycare.selectedMonth {
         case 1:
@@ -52,6 +48,7 @@ struct singleTeacherDetailView: View {
             return "Unknown"
         }
     }
+    
     init() {
         //dateFormatter = DateFormatter()
         dateFormatter1.dateStyle = .none
@@ -61,59 +58,39 @@ struct singleTeacherDetailView: View {
         dateFormatter2.timeStyle = .none
         
     }
-    //
+    
     var body: some View {
-        if daycare.selectedTeacher.UID != nil{
-            let teacher = daycare.selectedTeacher
+        if daycare.selectedStudent.UID != nil{
+            let student = daycare.selectedStudent
             
             if showTimesheet == false{
                 ScrollView{
                     VStack(alignment : .leading){
                         // group 1 static information
                         Group{
-                            HStack{
-                                Text("Name: " + (teacher.name ?? "no name"))
-                                
-                                Button {
-                                    // to show a sheet
-                                    self.role = "teacher"
-                                    self.field = "Name"
-                                    showUpdateSheet = true
-                                } label: {
-                                    ZStack{
-                                        Text("Update")
-                                    }
-                                }
-
-                            }
-                            
-                            HStack{
-                                Text("Nick Name: " + (teacher.nickName ?? "no name"))
-                                
-                                Button {
-                                    // to show a sheet
-                                    role = "teacher"
-                                    field = "Nick Name"
-                                    showUpdateSheet = true
-                                } label: {
-                                    ZStack{
-                                        Text("Update")
-                                    }
-                                }
-
+                            Text("Name: " + (student.studentName ?? "no name"))
+                            Text("Nick Name: " + (student.nickName ?? "no name"))
+                            Text("ID: " + (student.UID ?? "no UID"))
+                            // add other profile information
+                            Group{
+                                Text("Guardian1: " + (daycare.selectedStudent.guardianName ?? ""))
+                                Text("Phone: " + "\(daycare.selectedStudent.guardianPhone ?? "")")
+                                Text("Email: " + (daycare.selectedStudent.guardianEmail ?? ""))
+                                Text("Guardian2: " + (daycare.selectedStudent.guardian2Name ?? ""))
+                                Text("Phone: " + "\(daycare.selectedStudent.guardian2Phone ?? "")")
+                                Text("Email: " + (daycare.selectedStudent.guardian2Email ?? ""))
                             }
                             
                             
-                            Text("ID: " + (teacher.UID ?? "no UID"))
-                            Text("Group Assigned: " + (teacher.group ?? "no group"))
+                            Text("Group Assigned: " + (student.group ?? "no group"))
                             HStack{
                                 Text("Status: ")
                                 Circle()
-                                    .foregroundColor(teacher.isCheckedIn ? .green : .red)
+                                    .foregroundColor(student.isCheckedIn ? .green : .red)
                                     .frame(width: 20, height: 20)
-                                Text(teacher.isCheckedIn ? "IN" : "OUT")
+                                Text(student.isCheckedIn ? "IN" : "OUT")
                                 Text(" since:")
-                                Text(daycare.selectedTeacher.lastKnownTimestamp ?? Date(), style: .time)
+                                Text(daycare.selectedStudent.lastKnownTimestamp ?? Date(), style: .time)
                                 Spacer()
                             }
                         }
@@ -121,7 +98,7 @@ struct singleTeacherDetailView: View {
                         // group 2 check in or check out
                         HStack{
                             Button {
-                                daycare.teacherCheckedIn()
+                                daycare.studentCheckedIn()
                             } label: {
                                 ZStack{
                                     Capsule()
@@ -139,7 +116,7 @@ struct singleTeacherDetailView: View {
                             
                             
                             Button {
-                                daycare.teacherCheckedOut()
+                                daycare.studentCheckedOut()
                             } label: {
                                 ZStack{
                                     Capsule()
@@ -188,7 +165,7 @@ struct singleTeacherDetailView: View {
                             Button {
                             if selectedMonth != 0{
                                 daycare.selectedMonth = selectedMonth
-                                daycare.fetchTeacherTimeSheetGivenMonth()
+                                daycare.fetchStudentTimeSheetGivenMonth()
                                 showTimesheet = true
                             }
                             
@@ -225,7 +202,7 @@ struct singleTeacherDetailView: View {
                                 
                                 Button {
                                     // assign class, update backend data
-                                    daycare.assignClassTeacher(group: selectedClass)
+                                    daycare.assignClassStudent(group: selectedClass)
                                 } label: {
                                     ZStack{
                                         Capsule()
@@ -243,11 +220,8 @@ struct singleTeacherDetailView: View {
                         }
                         
                     }
-                    .navigationTitle(teacher.name ?? "No name")
+                    .navigationTitle(student.studentName ?? "No name")
                     .navigationBarTitleDisplayMode(.inline)
-                }
-                .sheet(isPresented: $showUpdateSheet) {
-                    UpdateProfileSheet(showUpdateSheet: $showUpdateSheet, role: $role, field: $field)
                 }
             }
             else{
@@ -334,9 +308,10 @@ struct singleTeacherDetailView: View {
             
         }
         else{
-            Text("No teacher")
+            Text("No student")
             
         }
     }
 }
+
 

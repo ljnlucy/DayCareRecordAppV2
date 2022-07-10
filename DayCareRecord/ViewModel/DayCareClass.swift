@@ -65,8 +65,8 @@ class DayCareClass: ObservableObject{
         dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .none
         addTeacherCollectionListener()
-        //addStudentCollectionListener()
-        //addclassRoomCollectionListener()
+        addStudentCollectionListener()
+        addclassRoomCollectionListener()
     }
     
     func getTeacherList() -> Void {
@@ -734,11 +734,11 @@ class DayCareClass: ObservableObject{
         }
     }
     
-    func updateTeacherProfileName(name : String) -> Void {
-        db.collection("Teacher List").document(selectedTeacher.UID!).setData(["name" : name], merge: true)
+    func updateTeacherProfileName(newValue : String) -> Void {
+        db.collection("Teacher List").document(selectedTeacher.UID!).setData(["name" : newValue], merge: true)
     }
-    func updateTeacherProfileNickName(nickName : String) -> Void {
-        db.collection("Teacher List").document(selectedTeacher.UID!).setData(["nickName" : nickName], merge: true)
+    func updateTeacherProfileNickName(newValue : String) -> Void {
+        db.collection("Teacher List").document(selectedTeacher.UID!).setData(["nickName" : newValue], merge: true)
     }
     /*                                          */
     func updateStudentProfileName(newValue : String) -> Void {
