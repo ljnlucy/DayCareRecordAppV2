@@ -138,6 +138,22 @@ struct singleStudentDetailView: View {
                                 HStack{
                                     Text("Phone: " + "\(daycare.selectedStudent.guardianPhone ?? "")")
                                     Spacer()
+                                    //Link("Call", destination: URL(string: "tel:\(business.phone!)")!)
+                                    
+                                    
+                                    Link(destination: URL(string: "tel:\(daycare.selectedStudent.guardianPhone ?? "")")!) {
+                                            ZStack{
+                                                Capsule()
+                                                    .frame(width: 30, height: 30)
+                                                    .foregroundColor(.green)
+                                                Image(systemName: "phone.arrow.up.right")
+                                                    .foregroundColor(.black)
+                                                    .padding(.horizontal)
+                                            }
+                                        }
+                                    
+                                    
+                                    
                                     Button {
                                         // to show a sheet
                                         self.role = "student"
@@ -157,6 +173,18 @@ struct singleStudentDetailView: View {
                                 HStack{
                                     Text("Email: " + (daycare.selectedStudent.guardianEmail ?? ""))
                                     Spacer()
+                                    
+                                    Link(destination: URL(string: "mailto:\(daycare.selectedStudent.guardianEmail ?? "")")!) {
+                                            ZStack{
+                                                Capsule()
+                                                    .frame(width: 30, height: 30)
+                                                    .foregroundColor(.blue)
+                                                Image(systemName: "envelope")
+                                                    .foregroundColor(.black)
+                                                    .padding(.horizontal)
+                                            }
+                                        }
+
                                     Button {
                                         // to show a sheet
                                         self.role = "student"
@@ -195,6 +223,17 @@ struct singleStudentDetailView: View {
                                 HStack{
                                     Text("Phone: " + "\(daycare.selectedStudent.guardian2Phone ?? "")")
                                     Spacer()
+                                    
+                                    Link(destination: URL(string: "tel:\(daycare.selectedStudent.guardian2Phone ?? "")")!) {
+                                            ZStack{
+                                                Capsule()
+                                                    .frame(width: 30, height: 30)
+                                                    .foregroundColor(.green)
+                                                Image(systemName: "phone.arrow.up.right")
+                                                    .foregroundColor(.black)
+                                                    .padding(.horizontal)
+                                            }
+                                        }
                                     Button {
                                         // to show a sheet
                                         self.role = "student"
@@ -214,6 +253,17 @@ struct singleStudentDetailView: View {
                                 HStack{
                                     Text("Email: " + (daycare.selectedStudent.guardian2Email ?? ""))
                                     Spacer()
+                                    Link(destination: URL(string: "mailto:\(daycare.selectedStudent.guardian2Email ?? "")")!) {
+                                            ZStack{
+                                                Capsule()
+                                                    .frame(width: 30, height: 30)
+                                                    .foregroundColor(.blue)
+                                                Image(systemName: "envelope")
+                                                    .foregroundColor(.black)
+                                                    .padding(.horizontal)
+                                            }
+                                        }
+
                                     Button {
                                         // to show a sheet
                                         self.role = "student"
@@ -232,7 +282,6 @@ struct singleStudentDetailView: View {
                                 }
                                 
                                 
-                                /*Text("Guardian2: " + (daycare.selectedStudent.guardian2Name ?? ""))*/
                                 
                                 
                             }
