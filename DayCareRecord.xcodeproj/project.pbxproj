@@ -113,8 +113,8 @@
 				D85093182878B2A000E487D9 /* TeacherListView.swift */,
 				D8509320287A84C200E487D9 /* StudentListView.swift */,
 				D850931A2878B41A00E487D9 /* singleTeacherDetailView.swift */,
-				D850931C2878C2C300E487D9 /* navigationLandingView.swift */,
 				D8509322287A85D400E487D9 /* singleStudentDetailView.swift */,
+				D850931C2878C2C300E487D9 /* navigationLandingView.swift */,
 				D8509324287A8CE300E487D9 /* UpdateProfileSheet.swift */,
 			);
 			path = View;

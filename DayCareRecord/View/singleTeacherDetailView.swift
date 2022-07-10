@@ -73,7 +73,7 @@ struct singleTeacherDetailView: View {
                         Group{
                             HStack{
                                 Text("Name: " + (teacher.name ?? "no name"))
-                                
+                                Spacer()
                                 Button {
                                     // to show a sheet
                                     self.role = "teacher"
@@ -81,7 +81,11 @@ struct singleTeacherDetailView: View {
                                     showUpdateSheet = true
                                 } label: {
                                     ZStack{
+                                        Capsule()
+                                            .frame(width: 110, height: 30)
+                                            .foregroundColor(.orange)
                                         Text("Update")
+                                            .foregroundColor(.black)
                                     }
                                 }
 
@@ -89,7 +93,7 @@ struct singleTeacherDetailView: View {
                             
                             HStack{
                                 Text("Nick Name: " + (teacher.nickName ?? "no name"))
-                                
+                                Spacer()
                                 Button {
                                     // to show a sheet
                                     role = "teacher"
@@ -97,7 +101,11 @@ struct singleTeacherDetailView: View {
                                     showUpdateSheet = true
                                 } label: {
                                     ZStack{
+                                        Capsule()
+                                            .frame(width: 110, height: 30)
+                                            .foregroundColor(.orange)
                                         Text("Update")
+                                            .foregroundColor(.black)
                                     }
                                 }
 

@@ -12,6 +12,9 @@ struct singleStudentDetailView: View {
     @State var selectedMonth : Int = 0
     @State var selectedClass : String = "No Class"
     @State var showTimesheet : Bool = false
+    @State var showUpdateSheet : Bool = false
+    @State var role : String = ""
+    @State var field : String = ""
     
     
     var dateFormatter1 : DateFormatter = DateFormatter()
@@ -68,17 +71,170 @@ struct singleStudentDetailView: View {
                     VStack(alignment : .leading){
                         // group 1 static information
                         Group{
-                            Text("Name: " + (student.studentName ?? "no name"))
-                            Text("Nick Name: " + (student.nickName ?? "no name"))
+                            HStack{
+                                Text("Name: " + (student.studentName ?? "no name"))
+                                Spacer()
+                                Button {
+                                    // to show a sheet
+                                    self.role = "student"
+                                    self.field = "Name"
+                                    showUpdateSheet = true
+                                } label: {
+                                    ZStack{
+                                        Capsule()
+                                            .frame(width: 110, height: 30)
+                                            .foregroundColor(.orange)
+                                        Text("Update")
+                                            .foregroundColor(.black)
+                                    }
+                                }
+
+                            }
+                            
+                            HStack{
+                                Text("Nick Name: " + (student.nickName ?? "no name"))
+                                Spacer()
+                                Button {
+                                    // to show a sheet
+                                    self.role = "student"
+                                    self.field = "Nick Name"
+                                    showUpdateSheet = true
+                                } label: {
+                                    ZStack{
+                                        Capsule()
+                                            .frame(width: 110, height: 30)
+                                            .foregroundColor(.orange)
+                                        Text("Update")
+                                            .foregroundColor(.black)
+                                    }
+                                }
+
+                            }
+                            
+                            
+                            
                             Text("ID: " + (student.UID ?? "no UID"))
                             // add other profile information
                             Group{
-                                Text("Guardian1: " + (daycare.selectedStudent.guardianName ?? ""))
-                                Text("Phone: " + "\(daycare.selectedStudent.guardianPhone ?? "")")
-                                Text("Email: " + (daycare.selectedStudent.guardianEmail ?? ""))
-                                Text("Guardian2: " + (daycare.selectedStudent.guardian2Name ?? ""))
-                                Text("Phone: " + "\(daycare.selectedStudent.guardian2Phone ?? "")")
-                                Text("Email: " + (daycare.selectedStudent.guardian2Email ?? ""))
+                                HStack{
+                                    Text("Guardian1: " + (daycare.selectedStudent.guardianName ?? ""))
+                                    Spacer()
+                                    Button {
+                                        // to show a sheet
+                                        self.role = "student"
+                                        self.field = "Guardian1"
+                                        showUpdateSheet = true
+                                    } label: {
+                                        ZStack{
+                                            Capsule()
+                                                .frame(width: 110, height: 30)
+                                                .foregroundColor(.orange)
+                                            Text("Update")
+                                                .foregroundColor(.black)
+                                        }
+                                    }
+
+                                }
+                                HStack{
+                                    Text("Phone: " + "\(daycare.selectedStudent.guardianPhone ?? "")")
+                                    Spacer()
+                                    Button {
+                                        // to show a sheet
+                                        self.role = "student"
+                                        self.field = "GuardianPhone"
+                                        showUpdateSheet = true
+                                    } label: {
+                                        ZStack{
+                                            Capsule()
+                                                .frame(width: 110, height: 30)
+                                                .foregroundColor(.orange)
+                                            Text("Update")
+                                                .foregroundColor(.black)
+                                        }
+                                    }
+
+                                }
+                                HStack{
+                                    Text("Email: " + (daycare.selectedStudent.guardianEmail ?? ""))
+                                    Spacer()
+                                    Button {
+                                        // to show a sheet
+                                        self.role = "student"
+                                        self.field = "GuardianEmail"
+                                        showUpdateSheet = true
+                                    } label: {
+                                        ZStack{
+                                            Capsule()
+                                                .frame(width: 110, height: 30)
+                                                .foregroundColor(.orange)
+                                            Text("Update")
+                                                .foregroundColor(.black)
+                                        }
+                                    }
+
+                                }
+                                HStack{
+                                    Text("Guardian2: " + (daycare.selectedStudent.guardian2Name ?? ""))
+                                    Spacer()
+                                    Button {
+                                        // to show a sheet
+                                        self.role = "student"
+                                        self.field = "Guardian2"
+                                        showUpdateSheet = true
+                                    } label: {
+                                        ZStack{
+                                            Capsule()
+                                                .frame(width: 110, height: 30)
+                                                .foregroundColor(.orange)
+                                            Text("Update")
+                                                .foregroundColor(.black)
+                                        }
+                                    }
+
+                                }
+                                HStack{
+                                    Text("Phone: " + "\(daycare.selectedStudent.guardian2Phone ?? "")")
+                                    Spacer()
+                                    Button {
+                                        // to show a sheet
+                                        self.role = "student"
+                                        self.field = "Guardian2Phone"
+                                        showUpdateSheet = true
+                                    } label: {
+                                        ZStack{
+                                            Capsule()
+                                                .frame(width: 110, height: 30)
+                                                .foregroundColor(.orange)
+                                            Text("Update")
+                                                .foregroundColor(.black)
+                                        }
+                                    }
+
+                                }
+                                HStack{
+                                    Text("Email: " + (daycare.selectedStudent.guardian2Email ?? ""))
+                                    Spacer()
+                                    Button {
+                                        // to show a sheet
+                                        self.role = "student"
+                                        self.field = "Guardian2Email"
+                                        showUpdateSheet = true
+                                    } label: {
+                                        ZStack{
+                                            Capsule()
+                                                .frame(width: 110, height: 30)
+                                                .foregroundColor(.orange)
+                                            Text("Update")
+                                                .foregroundColor(.black)
+                                        }
+                                    }
+
+                                }
+                                
+                                
+                                /*Text("Guardian2: " + (daycare.selectedStudent.guardian2Name ?? ""))*/
+                                
+                                
                             }
                             
                             
@@ -222,6 +378,9 @@ struct singleStudentDetailView: View {
                     }
                     .navigationTitle(student.studentName ?? "No name")
                     .navigationBarTitleDisplayMode(.inline)
+                }
+                .sheet(isPresented: $showUpdateSheet) {
+                    UpdateProfileSheet(showUpdateSheet: $showUpdateSheet, role: $role, field: $field)
                 }
             }
             else{
