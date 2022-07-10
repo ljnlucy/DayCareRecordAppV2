@@ -145,7 +145,7 @@ struct singleStudentDetailView: View {
                                             ZStack{
                                                 Capsule()
                                                     .frame(width: 30, height: 30)
-                                                    .foregroundColor(.green)
+                                                    .foregroundColor(.green).padding()
                                                 Image(systemName: "phone.arrow.up.right")
                                                     .foregroundColor(.black)
                                                     .padding(.horizontal)
@@ -179,6 +179,7 @@ struct singleStudentDetailView: View {
                                                 Capsule()
                                                     .frame(width: 30, height: 30)
                                                     .foregroundColor(.blue)
+                                                    .padding()
                                                 Image(systemName: "envelope")
                                                     .foregroundColor(.black)
                                                     .padding(.horizontal)
@@ -228,7 +229,7 @@ struct singleStudentDetailView: View {
                                             ZStack{
                                                 Capsule()
                                                     .frame(width: 30, height: 30)
-                                                    .foregroundColor(.green)
+                                                    .foregroundColor(.green).padding()
                                                 Image(systemName: "phone.arrow.up.right")
                                                     .foregroundColor(.black)
                                                     .padding(.horizontal)
@@ -258,7 +259,7 @@ struct singleStudentDetailView: View {
                                                 Capsule()
                                                     .frame(width: 30, height: 30)
                                                     .foregroundColor(.blue)
-                                                Image(systemName: "envelope")
+                                                Image(systemName: "envelope").padding()
                                                     .foregroundColor(.black)
                                                     .padding(.horizontal)
                                             }
