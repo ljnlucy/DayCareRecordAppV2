@@ -129,7 +129,7 @@ class DayCareClass: ObservableObject{
     
     func createTeacherProfile(name : String, UID : String, nickName : String, originalImage : UIImage) -> Void {
         // upload image
-        var compressedImageData : Data = originalImage.jpegData(compressionQuality: 0.2) ?? Data()
+        var compressedImageData : Data = originalImage.jpegData(compressionQuality: 0.0) ?? Data()
         var parentPath = "images/teacher/"
         var childPath = "\(UID).jpg"
         
@@ -315,14 +315,18 @@ class DayCareClass: ObservableObject{
     func downloadTeacherProfileImageData(t : Teacher) -> Void {
         if t.imageUrl != nil && t.UID != nil{
             let pathRef = self.storage.reference(withPath: t.imageUrl!)
-            pathRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
+            pathRef.getData(maxSize: 256 * 256) { data, error in
                 if error == nil && data != nil{
                     DispatchQueue.main.async{
                         self.profileImageDict[t.UID!] = data!
+                        print("teacher image is downloaded")
                     }
                 }
-            }
-            
+                else{
+                    print("image download error")
+                    print(error?.localizedDescription)
+                }
+            }            
         }
         else{
             return
@@ -331,7 +335,7 @@ class DayCareClass: ObservableObject{
     func downloadStudentProfileImageData(s : Student) -> Void {
         if s.imageUrl != nil && s.UID != nil{
             let pathRef = self.storage.reference(withPath: s.imageUrl!)
-            pathRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
+            pathRef.getData(maxSize: 1 * 256 * 256) { data, error in
                 if error == nil && data != nil{
                     DispatchQueue.main.async{
                         self.profileImageDict[s.UID!] = data!
@@ -347,7 +351,7 @@ class DayCareClass: ObservableObject{
     func downloadClassRoomProfileImageData(s : classRoom) -> Void {
         if s.imageUrl != nil && s.classRoomName != nil{
             let pathRef = self.storage.reference(withPath: s.imageUrl!)
-            pathRef.getData(maxSize: 1 * 1024 * 1024) { data, error in
+            pathRef.getData(maxSize: 1 * 256 * 256) { data, error in
                 if error == nil && data != nil{
                     DispatchQueue.main.async{
                         self.profileImageDict[s.classRoomName!] = data!

@@ -113,15 +113,13 @@
 		D8040A0128713616002C0946 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D8CE88532884AB9A00B94AEC /* Launching login signup group */,
 				D80409E9287133BC002C0946 /* homeView.swift */,
 				D85093182878B2A000E487D9 /* TeacherListView.swift */,
 				D8509320287A84C200E487D9 /* StudentListView.swift */,
 				D850931A2878B41A00E487D9 /* singleTeacherDetailView.swift */,
 				D8509322287A85D400E487D9 /* singleStudentDetailView.swift */,
-				D850931C2878C2C300E487D9 /* navigationLandingView.swift */,
-				D8509324287A8CE300E487D9 /* UpdateProfileSheet.swift */,
-				D850CDE6287B5B6C00CE98BC /* addTeacherProfileSheet.swift */,
-				D850CDE8287B5E8900CE98BC /* addStudentProfileSheet.swift */,
+				D8CE88522884AB6C00B94AEC /* second level view */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -133,6 +131,24 @@
 				D8040A05287136AF002C0946 /* ImagePicker.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		D8CE88522884AB6C00B94AEC /* second level view */ = {
+			isa = PBXGroup;
+			children = (
+				D850931C2878C2C300E487D9 /* navigationLandingView.swift */,
+				D8509324287A8CE300E487D9 /* UpdateProfileSheet.swift */,
+				D850CDE6287B5B6C00CE98BC /* addTeacherProfileSheet.swift */,
+				D850CDE8287B5E8900CE98BC /* addStudentProfileSheet.swift */,
+			);
+			path = "second level view";
+			sourceTree = "<group>";
+		};
+		D8CE88532884AB9A00B94AEC /* Launching login signup group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Launching login signup group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -69,6 +69,26 @@ struct singleStudentDetailView: View {
             if showTimesheet == false{
                 ScrollView{
                     VStack(alignment : .leading){
+                        // profile image
+                        HStack{
+                            Spacer()
+                            if daycare.selectedStudent.UID != nil && daycare.profileImageDict[daycare.selectedStudent.UID!] != nil{
+                                Image(uiImage: UIImage(data: daycare.profileImageDict[daycare.selectedStudent.UID!]!)!)
+                                    .resizable()
+                                    .frame(width: 200, height: 200, alignment: .center)
+                                    .scaledToFill()
+                                    .cornerRadius(10)
+                            }
+                            else{
+                                ProgressView()
+                                    .frame(width: 200, height: 200, alignment: .center)
+                                    .onAppear {
+                                        daycare.downloadStudentProfileImageData(s: student)
+                                    }
+                            }
+                            Spacer()
+                        }
+                        
                         // group 1 static information
                         Group{
                             HStack{
