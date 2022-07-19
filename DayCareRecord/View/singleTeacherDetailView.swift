@@ -15,7 +15,8 @@ struct singleTeacherDetailView: View {
     @State var showUpdateSheet : Bool = false
     @State var role : String = ""
     @State var field : String = ""
-    
+    //@State var isPickerShowing : Bool = false
+    //@State var selectedImage : UIImage?
     
     var dateFormatter1 : DateFormatter = DateFormatter()
     var dateFormatter2 : DateFormatter = DateFormatter()
@@ -78,6 +79,7 @@ struct singleTeacherDetailView: View {
                                     .frame(width: 200, height: 200, alignment: .center)
                                     .scaledToFill()
                                     .cornerRadius(10)
+                                    
                             }
                             else{
                                 ProgressView()
@@ -277,6 +279,8 @@ struct singleTeacherDetailView: View {
                 .sheet(isPresented: $showUpdateSheet) {
                     UpdateProfileSheet(showUpdateSheet: $showUpdateSheet, role: $role, field: $field)
                 }
+                
+
             }
             else{
                 // show time sheet

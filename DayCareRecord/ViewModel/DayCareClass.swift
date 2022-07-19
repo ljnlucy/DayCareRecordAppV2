@@ -160,6 +160,26 @@ class DayCareClass: ObservableObject{
         
         
     }
+    func updateTeacherProfileImage(UID : String, originalImage : UIImage) -> Void {
+        var compressedImageData : Data = originalImage.aspectFittedToHeight(160).jpegData(compressionQuality: 0.0) ?? Data()
+        var parentPath = "images/teacher/"
+        var childPath = "\(UID).jpg"
+        
+        let storageRef = storage.reference(withPath: parentPath + childPath)
+        
+        if compressedImageData != nil{
+            storageRef.putData(compressedImageData) { meta, error in
+                // create teacher profile + image url
+                if error == nil{
+                    // update local memory
+                    DispatchQueue.main.async {
+                        self.profileImageDict[UID] = compressedImageData
+                    }
+                    
+                }
+            }
+        }
+    }
     
     func createStudentProfile(studentName : String, UID : String, nickName : String,
                               guardianName : String, guardianEmail : String, guardianPhone : String,
