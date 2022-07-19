@@ -113,12 +113,12 @@
 		D8040A0128713616002C0946 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D8CE88532884AB9A00B94AEC /* Launching login signup group */,
 				D80409E9287133BC002C0946 /* homeView.swift */,
 				D85093182878B2A000E487D9 /* TeacherListView.swift */,
 				D8509320287A84C200E487D9 /* StudentListView.swift */,
 				D850931A2878B41A00E487D9 /* singleTeacherDetailView.swift */,
 				D8509322287A85D400E487D9 /* singleStudentDetailView.swift */,
+				D8CE88532884AB9A00B94AEC /* Launching login signup group */,
 				D8CE88522884AB6C00B94AEC /* second level view */,
 			);
 			path = View;

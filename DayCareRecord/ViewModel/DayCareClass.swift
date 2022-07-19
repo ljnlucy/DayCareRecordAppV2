@@ -127,9 +127,12 @@ class DayCareClass: ObservableObject{
         }
     }
     
+    
     func createTeacherProfile(name : String, UID : String, nickName : String, originalImage : UIImage) -> Void {
-        // upload image
-        var compressedImageData : Data = originalImage.jpegData(compressionQuality: 0.0) ?? Data()
+        // reduce image size
+
+        // compress image then upload image
+        var compressedImageData : Data = originalImage.aspectFittedToHeight(160).jpegData(compressionQuality: 0.0) ?? Data()
         var parentPath = "images/teacher/"
         var childPath = "\(UID).jpg"
         
@@ -162,7 +165,7 @@ class DayCareClass: ObservableObject{
                               guardianName : String, guardianEmail : String, guardianPhone : String,
                               guardian2Name : String, guardian2Email : String, guardian2Phone : String,
                               group : String, originalImage : UIImage) -> Void {
-        var compressedImageData : Data = originalImage.jpegData(compressionQuality: 0.2) ?? Data()
+        var compressedImageData : Data = originalImage.aspectFittedToHeight(160).jpegData(compressionQuality: 0.2) ?? Data()
         var parentPath = "images/student/"
         var childPath = "\(UID).jpg"
         
@@ -516,7 +519,7 @@ class DayCareClass: ObservableObject{
     }
     func createclassRoomProfile(classRoomName : String, classRoomDescription : String, originalImage : UIImage) -> Void {
         // upload image
-        var compressedImageData : Data = originalImage.jpegData(compressionQuality: 0.2) ?? Data()
+        var compressedImageData : Data = originalImage.aspectFittedToHeight(160).jpegData(compressionQuality: 0.2) ?? Data()
         var parentPath = "images/classRoom/"
         var childPath = "\(classRoomName).jpg"
         
@@ -769,5 +772,20 @@ class DayCareClass: ObservableObject{
     }
     func updateStudentProfileGuardian2Email(newValue : String) -> Void {
         db.collection("Student List").document(selectedStudent.UID!).setData(["guardian2Email" : newValue], merge: true)
+    }
+}
+
+
+extension UIImage {
+    func aspectFittedToHeight(_ newHeight: CGFloat) -> UIImage {
+        
+        let scale = newHeight / self.size.height
+        let newWidth = self.size.width * scale
+        let newSize = CGSize(width: newWidth, height: newHeight)
+        let renderer = UIGraphicsImageRenderer(size: newSize)
+
+        return renderer.image { _ in
+            self.draw(in: CGRect(origin: .zero, size: newSize))
+        }
     }
 }
