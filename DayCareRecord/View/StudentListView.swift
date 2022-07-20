@@ -41,13 +41,24 @@ struct StudentListView: View {
                 }
                 .navigationTitle("Student List")
                 .toolbar {
+                    HStack{
+                    
                     Button {
                         // show a view to add teacher
                         isAddStudentSheetShow = true
                     } label: {
                         Image(systemName: "person.crop.circle.badge.plus")
                     }
-                    
+                    Button {
+                                        daycare.signOut()
+                                    } label: {
+                                        HStack{
+                                            //Text("Sign Out").font(.caption2)
+                                            Image(systemName: "square.and.arrow.up")
+                                        }
+                                        
+                                    }
+                    }
                 }
                 .sheet(isPresented: $isAddStudentSheetShow) {
                     addStudentProfileSheet(isAddStudentSheetShow : $isAddStudentSheetShow)

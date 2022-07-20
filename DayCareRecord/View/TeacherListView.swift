@@ -42,11 +42,24 @@ struct TeacherListView: View {
                 }
                 .navigationTitle("Teacher List")
                 .toolbar {
+                    HStack{
+                        
+                    
                     Button {
                         // show a view to add teacher
                         isAddTeacherSheetShow = true
                     } label: {
                         Image(systemName: "person.crop.circle.badge.plus")
+                    }
+                    Button {
+                                        daycare.signOut()
+                                    } label: {
+                                        HStack{
+                                            //Text("Sign Out").font(.caption2)
+                                            Image(systemName: "square.and.arrow.up")
+                                        }
+                                        
+                                    }
                     }
 
                 }

@@ -321,6 +321,8 @@ struct singleTeacherDetailView: View {
                                     }
                                 }
                                 Divider()
+                                
+                                // here is the problem.
                                 VStack(alignment: .leading, spacing: 0){
                                     Text("Hours").font(.headline)
                                     Divider()
@@ -329,12 +331,18 @@ struct singleTeacherDetailView: View {
                                             Text("\((i.In!).distance(to: i.Out!)/3600, specifier: "%.1f")").font(.caption2)
                                                 .onAppear {
                                                     totalHours = totalHours + (i.In!).distance(to: i.Out!)
+                                                    print("print current total hours")
+                                                    print("\(totalHours)")
                                                 }
                                             
                                         }
                                         else{
                                             Text("N/A").font(.caption2)
                                         }
+                                    }.onDisappear {
+                                        print("reset total hours to 0.0")
+                                        totalHours = 0.0
+                                        daycare.timeSheets.removeAll()
                                     }
                                 }
                             }
@@ -370,5 +378,6 @@ struct singleTeacherDetailView: View {
             
         }
     }
+        
 }
 

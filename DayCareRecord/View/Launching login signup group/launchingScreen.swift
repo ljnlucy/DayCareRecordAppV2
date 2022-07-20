@@ -26,24 +26,27 @@ struct launchingScreen: View {
                 if chooseSignUp == false{
                     // log in view
                     Group{
-                        Text("EMAIL").foregroundColor(.gray).bold()
-                        TextField("please enter your email", text: $email)
-                        Divider()
-                        Text("PASSWORD").foregroundColor(.gray).bold()
-                        HStack{
-                            SecureField("please enter your password", text: $password)
-                            Spacer()
-                            Button {
-                                // handle forget password-> show a popup
-                                showForgetPasswordPopup = true
+                        VStack(alignment : .leading){
+                            Text("EMAIL").foregroundColor(.gray).bold()
+                            TextField("please enter your email", text: $email)
+                            Divider()
+                            Text("PASSWORD").foregroundColor(.gray).bold()
+                            HStack{
+                                SecureField("please enter your password", text: $password)
+                                Spacer()
+                                Button {
+                                    // handle forget password-> show a popup
+                                    showForgetPasswordPopup = true
+                                    
+                                } label: {
+                                    Text("Forget Password").foregroundColor(.gray)
+                                }
                                 
-                            } label: {
-                                Text("Forget Password").foregroundColor(.gray)
                             }
                             
+                            Divider()
                         }
                         
-                        Divider()
                     }
                     if daycare.errorMsg1 != ""{
                         Text(daycare.errorMsg1).font(.caption2)
