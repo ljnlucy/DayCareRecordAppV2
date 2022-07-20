@@ -34,6 +34,7 @@ struct launchingScreen: View {
                             HStack{
                                 SecureField("please enter your password", text: $password)
                                 Spacer()
+                                
                                 Button {
                                     // handle forget password-> show a popup
                                     showForgetPasswordPopup = true
@@ -41,6 +42,18 @@ struct launchingScreen: View {
                                 } label: {
                                     Text("Forget Password").foregroundColor(.gray)
                                 }
+                                .alert("Please contact Administrator to reset", isPresented: $showForgetPasswordPopup) {
+                                    Button("OK", role: .cancel) { }
+                                }
+                                
+                                /*
+                                Button("Forgot Password") {
+                                    showForgetPasswordPopup = true
+                                }
+                                .alert("Please contact Administrator to reset", isPresented: $showForgetPasswordPopup) {
+                                    Button("OK", role: .cancel) { }
+                                }*/
+                                
                                 
                             }
                             
