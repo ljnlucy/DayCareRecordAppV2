@@ -167,12 +167,7 @@ struct singleTeacherDetailView: View {
                                 Button("Confirm", role: .destructive) {
                                     // Handle the delete action.
                                     daycare.teacherCheckedIn()
-                                }
-//                                Button("Cancel") {
-//                                    // Handle the delete action.
-//                                    isShowingConfirmationDialog_CheckIn = false
-//                                }
-                                
+                                }                                
                             }
                             message: {
                           Text("Are you sure to Check In?")
@@ -194,7 +189,6 @@ struct singleTeacherDetailView: View {
                             .clipShape(RoundedRectangle(cornerRadius: 10))
                             .confirmationDialog("Are you sure to Check Out ?", isPresented: $isShowingConfirmationDialog_CheckOut) {
                                 Button("Confirm", role : .destructive) { daycare.teacherCheckedOut() }
-//                                Button("Cancel") { isShowingConfirmationDialog_CheckOut = false}
 
                             }
                         message: {

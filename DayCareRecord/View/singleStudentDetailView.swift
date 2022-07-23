@@ -309,9 +309,6 @@ struct singleStudentDetailView: View {
                             Button("Confirm", role : .destructive){
                                 daycare.studentCheckedIn()
                             }
-//                            Button("Cancel"){
-//                                isShowingConfirmationDialog_CheckIn = false
-//                            }
                         } message: {
                             Text("Are you sure to Check In?")
                         }
@@ -439,7 +436,6 @@ struct singleStudentDetailView: View {
                     ProgressView("Downloading Data...")
                 }
                 else{
-                    
                     ScrollView{
                         VStack{
                             HStack(spacing: 10){
@@ -472,6 +468,7 @@ struct singleStudentDetailView: View {
                                     }
                                 }
                                 Divider()
+                                
                                 VStack(alignment: .leading, spacing: 0){
                                     Text("Hours").font(.headline)
                                     Divider()
@@ -487,6 +484,11 @@ struct singleStudentDetailView: View {
                                             Text("N/A").font(.caption2)
                                         }
                                     }
+                                    .onDisappear {
+                                        print("reset total hours to 0.0")
+                                        totalHours = 0.0
+                                        daycare.timeSheets.removeAll()
+                                    }
                                 }
                             }
                             
@@ -497,7 +499,7 @@ struct singleStudentDetailView: View {
                             }
                         }
                         .padding(.horizontal)
-                        .navigationTitle((daycare.selectedTeacher.name ?? "") + "'s Timesheet")
+                        .navigationTitle((daycare.selectedStudent.studentName ?? "") + "'s Timesheet")
                         .toolbar {
                             Button {
                                 // flag flig
