@@ -15,7 +15,8 @@ struct singleStudentDetailView: View {
     @State var showUpdateSheet : Bool = false
     @State var role : String = ""
     @State var field : String = ""
-    
+    @State private var isShowingConfirmationDialog_CheckIn : Bool = false
+    @State private var isShowingConfirmationDialog_CheckOut : Bool = false
     
     var dateFormatter1 : DateFormatter = DateFormatter()
     var dateFormatter2 : DateFormatter = DateFormatter()
@@ -100,14 +101,12 @@ struct singleStudentDetailView: View {
                                     self.field = "Name"
                                     showUpdateSheet = true
                                 } label: {
-                                    ZStack{
-                                        Capsule()
-                                            .frame(width: 110, height: 30)
-                                            .foregroundColor(.orange)
                                         Text("Update")
-                                            .foregroundColor(.black)
-                                    }
                                 }
+                                .padding()
+                                .foregroundColor(.white)
+                                .background(Color.orange)
+                                .clipShape(RoundedRectangle(cornerRadius: 10))
 
                             }
                             
@@ -120,14 +119,12 @@ struct singleStudentDetailView: View {
                                     self.field = "Nick Name"
                                     showUpdateSheet = true
                                 } label: {
-                                    ZStack{
-                                        Capsule()
-                                            .frame(width: 110, height: 30)
-                                            .foregroundColor(.orange)
-                                        Text("Update")
-                                            .foregroundColor(.black)
-                                    }
-                                }
+                                    Text("Update")
+                            }
+                            .padding()
+                            .foregroundColor(.white)
+                            .background(Color.orange)
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
 
                             }
                             
@@ -135,7 +132,7 @@ struct singleStudentDetailView: View {
                             
                             Text("ID: " + (student.UID ?? "no UID"))
                             // add other profile information
-                            Group{
+                            VStack{
                                 HStack{
                                     Text("Guardian1: " + (daycare.selectedStudent.guardianName ?? ""))
                                     Spacer()
@@ -145,14 +142,12 @@ struct singleStudentDetailView: View {
                                         self.field = "Guardian1"
                                         showUpdateSheet = true
                                     } label: {
-                                        ZStack{
-                                            Capsule()
-                                                .frame(width: 110, height: 30)
-                                                .foregroundColor(.orange)
-                                            Text("Update")
-                                                .foregroundColor(.black)
-                                        }
-                                    }
+                                        Text("Update")
+                                }
+                                .padding()
+                                .foregroundColor(.white)
+                                .background(Color.orange)
+                                .clipShape(RoundedRectangle(cornerRadius: 10))
 
                                 }
                                 HStack{
@@ -162,14 +157,12 @@ struct singleStudentDetailView: View {
                                     
                                     
                                     Link(destination: URL(string: "tel:\(daycare.selectedStudent.guardianPhone ?? "")")!) {
-                                            ZStack{
-                                                Capsule()
-                                                    .frame(width: 30, height: 30)
-                                                    .foregroundColor(.green).padding()
                                                 Image(systemName: "phone.arrow.up.right")
-                                                    .foregroundColor(.black)
-                                                    .padding(.horizontal)
-                                            }
+                                                    .foregroundColor(.white)
+                                                    .padding()
+                                                    .background(Color.green)
+                                                    .clipShape(Circle())
+                                            
                                         }
                                     
                                     
@@ -180,14 +173,12 @@ struct singleStudentDetailView: View {
                                         self.field = "GuardianPhone"
                                         showUpdateSheet = true
                                     } label: {
-                                        ZStack{
-                                            Capsule()
-                                                .frame(width: 110, height: 30)
-                                                .foregroundColor(.orange)
-                                            Text("Update")
-                                                .foregroundColor(.black)
-                                        }
-                                    }
+                                        Text("Update")
+                                }
+                                .padding()
+                                .foregroundColor(.white)
+                                .background(Color.orange)
+                                .clipShape(RoundedRectangle(cornerRadius: 10))
 
                                 }
                                 HStack{
@@ -195,15 +186,11 @@ struct singleStudentDetailView: View {
                                     Spacer()
                                     
                                     Link(destination: URL(string: "mailto:\(daycare.selectedStudent.guardianEmail ?? "")")!) {
-                                            ZStack{
-                                                Capsule()
-                                                    .frame(width: 30, height: 30)
-                                                    .foregroundColor(.blue)
-                                                    .padding()
                                                 Image(systemName: "envelope")
-                                                    .foregroundColor(.black)
-                                                    .padding(.horizontal)
-                                            }
+                                                    .foregroundColor(.white)
+                                                    .padding()
+                                                    .background(Color.blue)
+                                                    .clipShape(Circle())
                                         }
 
                                     Button {
@@ -212,14 +199,12 @@ struct singleStudentDetailView: View {
                                         self.field = "GuardianEmail"
                                         showUpdateSheet = true
                                     } label: {
-                                        ZStack{
-                                            Capsule()
-                                                .frame(width: 110, height: 30)
-                                                .foregroundColor(.orange)
-                                            Text("Update")
-                                                .foregroundColor(.black)
-                                        }
-                                    }
+                                        Text("Update")
+                                }
+                                .padding()
+                                .foregroundColor(.white)
+                                .background(Color.orange)
+                                .clipShape(RoundedRectangle(cornerRadius: 10))
 
                                 }
                                 HStack{
@@ -231,14 +216,12 @@ struct singleStudentDetailView: View {
                                         self.field = "Guardian2"
                                         showUpdateSheet = true
                                     } label: {
-                                        ZStack{
-                                            Capsule()
-                                                .frame(width: 110, height: 30)
-                                                .foregroundColor(.orange)
-                                            Text("Update")
-                                                .foregroundColor(.black)
-                                        }
-                                    }
+                                        Text("Update")
+                                }
+                                .padding()
+                                .foregroundColor(.white)
+                                .background(Color.orange)
+                                .clipShape(RoundedRectangle(cornerRadius: 10))
 
                                 }
                                 HStack{
@@ -246,14 +229,11 @@ struct singleStudentDetailView: View {
                                     Spacer()
                                     
                                     Link(destination: URL(string: "tel:\(daycare.selectedStudent.guardian2Phone ?? "")")!) {
-                                            ZStack{
-                                                Capsule()
-                                                    .frame(width: 30, height: 30)
-                                                    .foregroundColor(.green).padding()
                                                 Image(systemName: "phone.arrow.up.right")
-                                                    .foregroundColor(.black)
-                                                    .padding(.horizontal)
-                                            }
+                                                    .foregroundColor(.white)
+                                                    .padding()
+                                                    .background(Color.green)
+                                                    .clipShape(Circle())
                                         }
                                     Button {
                                         // to show a sheet
@@ -261,28 +241,23 @@ struct singleStudentDetailView: View {
                                         self.field = "Guardian2Phone"
                                         showUpdateSheet = true
                                     } label: {
-                                        ZStack{
-                                            Capsule()
-                                                .frame(width: 110, height: 30)
-                                                .foregroundColor(.orange)
-                                            Text("Update")
-                                                .foregroundColor(.black)
-                                        }
-                                    }
+                                        Text("Update")
+                                }
+                                .padding()
+                                .foregroundColor(.white)
+                                .background(Color.orange)
+                                .clipShape(RoundedRectangle(cornerRadius: 10))
 
                                 }
                                 HStack{
                                     Text("Email: " + (daycare.selectedStudent.guardian2Email ?? ""))
                                     Spacer()
                                     Link(destination: URL(string: "mailto:\(daycare.selectedStudent.guardian2Email ?? "")")!) {
-                                            ZStack{
-                                                Capsule()
-                                                    .frame(width: 30, height: 30)
-                                                    .foregroundColor(.blue)
                                                 Image(systemName: "envelope").padding()
-                                                    .foregroundColor(.black)
-                                                    .padding(.horizontal)
-                                            }
+                                                    .foregroundColor(.white)
+                                                    //.padding()
+                                                    .background(Color.blue)
+                                                    .clipShape(Circle())
                                         }
 
                                     Button {
@@ -291,20 +266,14 @@ struct singleStudentDetailView: View {
                                         self.field = "Guardian2Email"
                                         showUpdateSheet = true
                                     } label: {
-                                        ZStack{
-                                            Capsule()
-                                                .frame(width: 110, height: 30)
-                                                .foregroundColor(.orange)
-                                            Text("Update")
-                                                .foregroundColor(.black)
-                                        }
-                                    }
+                                        Text("Update")
+                                }
+                                .padding()
+                                .foregroundColor(.white)
+                                .background(Color.orange)
+                                .clipShape(RoundedRectangle(cornerRadius: 10))
 
                                 }
-                                
-                                
-                                
-                                
                             }
                             
                             
@@ -324,39 +293,56 @@ struct singleStudentDetailView: View {
                         // group 2 check in or check out
                         HStack{
                             Button {
-                                daycare.studentCheckedIn()
+                                //daycare.studentCheckedIn()
+                                isShowingConfirmationDialog_CheckIn = true
                             } label: {
-                                ZStack{
-                                    Capsule()
-                                        .frame(width: 130, height: 50)
-                                        .foregroundColor(.green)
-                                    
                                     HStack{
                                         Image(systemName: "square.and.arrow.down")
                                         Text("Check In")
                                     }
-                                    .foregroundColor(.black)
-                                    
-                                }
                             }
+                        .padding()
+                        .foregroundColor(.white)
+                        .background(Color.green)
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                        .confirmationDialog("Are you sure to Check In?", isPresented: $isShowingConfirmationDialog_CheckIn) {
+                            Button("Confirm", role : .destructive){
+                                daycare.studentCheckedIn()
+                            }
+                            Button("Cancel"){
+                                isShowingConfirmationDialog_CheckIn = false
+                            }
+                        } message: {
+                            Text("Are you sure to Check In?")
+                        }
+
                             
                             
                             Button {
-                                daycare.studentCheckedOut()
+                                isShowingConfirmationDialog_CheckOut = true
+
+                                //daycare.studentCheckedOut()
                             } label: {
-                                ZStack{
-                                    Capsule()
-                                        .frame(width: 130, height: 50)
-                                        .foregroundColor(.red)
-                                    
                                     HStack{
                                         Image(systemName: "square.and.arrow.up")
                                         Text("Check Out")
-                                    }
-                                    .foregroundColor(.black)
-                                    
                                 }
                             }
+                            .padding()
+                            .foregroundColor(.white)
+                            .background(Color.red)
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                            .confirmationDialog("Are you sure to Check Out?", isPresented: $isShowingConfirmationDialog_CheckOut) {
+                                Button("Confirm", role : .destructive){
+                                    daycare.studentCheckedOut()
+                                }
+                                Button("Cancel"){
+                                    isShowingConfirmationDialog_CheckOut = false
+                                }
+                            } message: {
+                                Text("Are you sure to Check Out?")
+                            }
+                            
                             Spacer()
                         }
                         
@@ -396,19 +382,15 @@ struct singleStudentDetailView: View {
                             }
                             
                         } label: {
-                            ZStack{
-                                Capsule()
-                                    .frame(width: 300, height: 50)
-                                    .foregroundColor(.orange)
-                                
                                 HStack{
                                     Image(systemName: "rectangle.split.3x3")
                                     Text("Show Selected Month Timesheet")
                                 }
-                                .foregroundColor(.black)
-                                
-                            }
                         }
+                        .padding()
+                        .foregroundColor(.white)
+                        .background(Color.orange)
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
                             
                         }
                         
@@ -430,17 +412,15 @@ struct singleStudentDetailView: View {
                                     // assign class, update backend data
                                     daycare.assignClassStudent(group: selectedClass)
                                 } label: {
-                                    ZStack{
-                                        Capsule()
-                                            .frame(width: 300, height: 50)
-                                            .foregroundColor(.orange)
                                         HStack{
                                             Image(systemName: "icloud.and.arrow.up")
                                             Text("Assign to selected class")
                                         }
-                                        .foregroundColor(.black)
-                                    }
                                 }
+                                .padding()
+                                .foregroundColor(.white)
+                                .background(Color.orange)
+                                .clipShape(RoundedRectangle(cornerRadius: 10))
 
                             }
                         }

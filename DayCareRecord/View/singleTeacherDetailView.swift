@@ -15,8 +15,9 @@ struct singleTeacherDetailView: View {
     @State var showUpdateSheet : Bool = false
     @State var role : String = ""
     @State var field : String = ""
-    //@State var isPickerShowing : Bool = false
-    //@State var selectedImage : UIImage?
+    @State private var isShowingConfirmationDialog_CheckIn : Bool = false
+    @State private var isShowingConfirmationDialog_CheckOut : Bool = false
+
     
     var dateFormatter1 : DateFormatter = DateFormatter()
     var dateFormatter2 : DateFormatter = DateFormatter()
@@ -102,14 +103,12 @@ struct singleTeacherDetailView: View {
                                     self.field = "Name"
                                     showUpdateSheet = true
                                 } label: {
-                                    ZStack{
-                                        Capsule()
-                                            .frame(width: 110, height: 30)
-                                            .foregroundColor(.orange)
-                                        Text("Update")
-                                            .foregroundColor(.black)
-                                    }
+                                    Text("Update")
                                 }
+                                .padding()
+                                .foregroundColor(.white)
+                                .background(Color.orange)
+                                .clipShape(RoundedRectangle(cornerRadius: 10))
 
                             }
                             
@@ -122,14 +121,13 @@ struct singleTeacherDetailView: View {
                                     field = "Nick Name"
                                     showUpdateSheet = true
                                 } label: {
-                                    ZStack{
-                                        Capsule()
-                                            .frame(width: 110, height: 30)
-                                            .foregroundColor(.orange)
                                         Text("Update")
-                                            .foregroundColor(.black)
-                                    }
+                                   
                                 }
+                                .padding()
+                                .foregroundColor(.white)
+                                .background(Color.orange)
+                                .clipShape(RoundedRectangle(cornerRadius: 10))
 
                             }
                             
@@ -150,40 +148,59 @@ struct singleTeacherDetailView: View {
                         
                         // group 2 check in or check out
                         HStack{
+                            
                             Button {
-                                daycare.teacherCheckedIn()
+                                isShowingConfirmationDialog_CheckIn = true
+                                // daycare.teacherCheckedIn()
                             } label: {
-                                ZStack{
-                                    Capsule()
-                                        .frame(width: 130, height: 50)
-                                        .foregroundColor(.green)
-                                    
-                                    HStack{
-                                        Image(systemName: "square.and.arrow.down")
-                                        Text("Check In")
-                                    }
-                                    .foregroundColor(.black)
-                                    
+                                HStack{
+                                    Image(systemName: "square.and.arrow.down")
+                                    Text("Check In")
                                 }
                             }
                             
+                            .padding()
+                            .foregroundColor(.white)
+                            .background(Color.green)
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                            .confirmationDialog("Are you sure to Check In?", isPresented: $isShowingConfirmationDialog_CheckIn) {
+                                Button("Confirm", role: .destructive) {
+                                    // Handle the delete action.
+                                    daycare.teacherCheckedIn()
+                                }
+                                Button("Cancel") {
+                                    // Handle the delete action.
+                                    isShowingConfirmationDialog_CheckIn = false
+                                }
+                                
+                            }
+                            message: {
+                          Text("Are you sure to Check In?")
+                            }
+
                             
                             Button {
-                                daycare.teacherCheckedOut()
+                                isShowingConfirmationDialog_CheckOut = true
+                                //daycare.teacherCheckedOut()
                             } label: {
-                                ZStack{
-                                    Capsule()
-                                        .frame(width: 130, height: 50)
-                                        .foregroundColor(.red)
-                                    
-                                    HStack{
-                                        Image(systemName: "square.and.arrow.up")
-                                        Text("Check Out")
-                                    }
-                                    .foregroundColor(.black)
-                                    
+                                HStack{
+                                    Image(systemName: "square.and.arrow.up")
+                                    Text("Check Out")
                                 }
                             }
+                            .padding()
+                            .foregroundColor(.white)
+                            .background(Color.red)
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                            .confirmationDialog("Are you sure to Check Out ?", isPresented: $isShowingConfirmationDialog_CheckOut) {
+                                Button("Confirm", role : .destructive) { daycare.teacherCheckedOut() }
+                                Button("Cancel") { isShowingConfirmationDialog_CheckOut = false}
+
+                            }
+                        message: {
+                      Text("Are you sure to Check Out?")
+                        }
+                            
                             Spacer()
                         }
                         
@@ -223,19 +240,15 @@ struct singleTeacherDetailView: View {
                             }
                             
                         } label: {
-                            ZStack{
-                                Capsule()
-                                    .frame(width: 300, height: 50)
-                                    .foregroundColor(.orange)
-                                
-                                HStack{
-                                    Image(systemName: "rectangle.split.3x3")
-                                    Text("Show Selected Month Timesheet")
-                                }
-                                .foregroundColor(.black)
-                                
+                            HStack{
+                                Image(systemName: "rectangle.split.3x3")
+                                Text("Show Selected Month Timesheet")
                             }
                         }
+                            .padding()
+                            .foregroundColor(.white)
+                            .background(Color.orange)
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
                             
                         }
                         
@@ -257,17 +270,15 @@ struct singleTeacherDetailView: View {
                                     // assign class, update backend data
                                     daycare.assignClassTeacher(group: selectedClass)
                                 } label: {
-                                    ZStack{
-                                        Capsule()
-                                            .frame(width: 300, height: 50)
-                                            .foregroundColor(.orange)
-                                        HStack{
-                                            Image(systemName: "icloud.and.arrow.up")
-                                            Text("Assign to selected class")
-                                        }
-                                        .foregroundColor(.black)
+                                    HStack{
+                                        Image(systemName: "icloud.and.arrow.up")
+                                        Text("Assign to selected class")
                                     }
                                 }
+                                .padding()
+                                .foregroundColor(.white)
+                                .background(Color.orange)
+                                .clipShape(RoundedRectangle(cornerRadius: 5))
 
                             }
                         }

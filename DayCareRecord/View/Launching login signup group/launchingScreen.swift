@@ -15,24 +15,41 @@ struct launchingScreen: View {
     @State var showForgetPasswordPopup : Bool = false
     @State var UID : String = ""
     @State var acceptTerms : Bool = false
+    @FocusState private var focusedField: FormField?
     
     var body: some View {
         ScrollView(showsIndicators: false){
             VStack{
                 Image("background2")
                     .resizable()
-                    //.frame(height: 300)
                     .scaledToFit()
+                    .frame(maxHeight : 300)
+                    
                 if chooseSignUp == false{
                     // log in view
                     Group{
                         VStack(alignment : .leading){
                             Text("EMAIL").foregroundColor(.gray).bold()
                             TextField("please enter your email", text: $email)
+                                .keyboardType(.emailAddress)
+                                .disableAutocorrection(true)
+                                .textCase(.lowercase)
+                                .submitLabel(.next)
+                                .focused($focusedField, equals: .email)
+                                .onSubmit {
+                                        focusedField = .password
+                                      
+                                    }
                             Divider()
                             Text("PASSWORD").foregroundColor(.gray).bold()
                             HStack{
                                 SecureField("please enter your password", text: $password)
+                                    .keyboardType(.default)
+                                    .submitLabel(.go)
+                                    .focused($focusedField, equals: .password)
+                                    .onSubmit {
+                                        daycare.signIn(email: email, password: password)
+                                    }
                                 Spacer()
                                 
                                 Button {
@@ -40,21 +57,11 @@ struct launchingScreen: View {
                                     showForgetPasswordPopup = true
                                     
                                 } label: {
-                                    Text("Forget Password").foregroundColor(.gray)
+                                    Text("Forget Password").foregroundColor(.gray).font(.caption)
                                 }
                                 .alert("Please contact Administrator to reset", isPresented: $showForgetPasswordPopup) {
                                     Button("OK", role: .cancel) { }
                                 }
-                                
-                                /*
-                                Button("Forgot Password") {
-                                    showForgetPasswordPopup = true
-                                }
-                                .alert("Please contact Administrator to reset", isPresented: $showForgetPasswordPopup) {
-                                    Button("OK", role: .cancel) { }
-                                }*/
-                                
-                                
                             }
                             
                             Divider()
@@ -69,16 +76,14 @@ struct launchingScreen: View {
                         // sign in
                         daycare.signIn(email: email, password: password)
                     } label: {
-                        ZStack{
-                            Rectangle()
-                                .frame(maxWidth : .infinity, minHeight: 20, maxHeight: 30)
-                                .padding(.vertical)
-                                .foregroundColor(.teal)
-                            
-                            Text("SIGN IN")
-                                .foregroundColor(.white)
-                        }
+                        Text("SIGN IN")
+                        
                     }
+                    .padding()
+                    .foregroundColor(.white)
+                    .background(Color.teal)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+
                     
                     HStack{
                         Spacer()
@@ -100,12 +105,31 @@ struct launchingScreen: View {
                         VStack(alignment : .leading){
                             Text("EMAIL").foregroundColor(.gray).bold()
                             TextField("please enter your email", text: $email)
+                                .keyboardType(.emailAddress)
+                                .disableAutocorrection(true)
+                                .textCase(.lowercase)
+                                .submitLabel(.next)
+                                .focused($focusedField, equals: .email2)
+                                .onSubmit {
+                                    focusedField = .password2
+                                }
                             Divider()
                             Text("PASSWORD").foregroundColor(.gray).bold()
-                            SecureField("please enter your password", text: $password)
+                            SecureField("please enter your password", text: $password).keyboardType(.default).submitLabel(.next)
+                                .focused($focusedField, equals: .password2)
+                                .onSubmit {
+                                    focusedField = .UID
+                                }
                             Divider()
                             Text("UID").foregroundColor(.gray).bold()
-                            TextField("Contact Admin to get an UID", text: $UID)
+                            TextField("Contact Admin to get an UID", text: $UID).submitLabel(.go)
+                                .disableAutocorrection(true)
+                                .focused($focusedField, equals: .UID)
+                                .onSubmit {
+                                    if self.acceptTerms == true{
+                                        daycare.signUp(email: email, password: password, UID: UID)
+                                    }
+                                }
                             Divider()
                         }
                         
@@ -123,16 +147,14 @@ struct launchingScreen: View {
                         }
                         
                     } label: {
-                        ZStack{
-                            Rectangle()
-                                .frame(maxWidth : .infinity, minHeight: 20, maxHeight: 30)
-                                .padding(.vertical)
-                                .foregroundColor(.teal)
-                            
-                            Text("SIGN UP")
-                                .foregroundColor(.white)
-                        }
+                        Text("SIGN UP")
                     }
+                    .padding()
+                    .foregroundColor(.white)
+                    .background(Color.teal)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+
+                    
                     Button {
                         // sign up
                         chooseSignUp = false
@@ -149,10 +171,15 @@ struct launchingScreen: View {
                     
                 }
             }
-            .frame(width : 350)
+            .padding(.horizontal)
+            .frame(maxWidth : .infinity)
         }
         
     }
+    
+    enum FormField {
+        case email, password, email2, password2, UID
+      }
 }
 
 struct launchingScreen_Previews: PreviewProvider {
