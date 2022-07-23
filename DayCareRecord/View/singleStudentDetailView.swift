@@ -309,9 +309,9 @@ struct singleStudentDetailView: View {
                             Button("Confirm", role : .destructive){
                                 daycare.studentCheckedIn()
                             }
-                            Button("Cancel"){
-                                isShowingConfirmationDialog_CheckIn = false
-                            }
+//                            Button("Cancel"){
+//                                isShowingConfirmationDialog_CheckIn = false
+//                            }
                         } message: {
                             Text("Are you sure to Check In?")
                         }
@@ -336,9 +336,9 @@ struct singleStudentDetailView: View {
                                 Button("Confirm", role : .destructive){
                                     daycare.studentCheckedOut()
                                 }
-                                Button("Cancel"){
-                                    isShowingConfirmationDialog_CheckOut = false
-                                }
+//                                Button("Cancel"){
+//                                    isShowingConfirmationDialog_CheckOut = false
+//                                }
                             } message: {
                                 Text("Are you sure to Check Out?")
                             }
