@@ -68,7 +68,6 @@ struct TeacherListView: View {
                 } content: {
                     addTeacherProfileSheet(isAddTeacherSheetShow : $isAddTeacherSheetShow)
                 }
-
                 navigationLandingView()
             }
         }

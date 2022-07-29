@@ -17,7 +17,7 @@ struct singleTeacherDetailView: View {
     @State var field : String = ""
     @State private var isShowingConfirmationDialog_CheckIn : Bool = false
     @State private var isShowingConfirmationDialog_CheckOut : Bool = false
-
+    
     
     var dateFormatter1 : DateFormatter = DateFormatter()
     var dateFormatter2 : DateFormatter = DateFormatter()
@@ -80,7 +80,7 @@ struct singleTeacherDetailView: View {
                                     .frame(width: 200, height: 200, alignment: .center)
                                     .scaledToFill()
                                     .cornerRadius(10)
-                                    
+                                
                             }
                             else{
                                 ProgressView()
@@ -109,7 +109,7 @@ struct singleTeacherDetailView: View {
                                 .foregroundColor(.white)
                                 .background(Color.orange)
                                 .clipShape(RoundedRectangle(cornerRadius: 10))
-
+                                
                             }
                             
                             HStack{
@@ -121,14 +121,14 @@ struct singleTeacherDetailView: View {
                                     field = "Nick Name"
                                     showUpdateSheet = true
                                 } label: {
-                                        Text("Update")
-                                   
+                                    Text("Update")
+                                    
                                 }
                                 .padding()
                                 .foregroundColor(.white)
                                 .background(Color.orange)
                                 .clipShape(RoundedRectangle(cornerRadius: 10))
-
+                                
                             }
                             
                             
@@ -167,12 +167,12 @@ struct singleTeacherDetailView: View {
                                 Button("Confirm", role: .destructive) {
                                     // Handle the delete action.
                                     daycare.teacherCheckedIn()
-                                }                                
+                                }
                             }
-                            message: {
-                          Text("Are you sure to Check In?")
-                            }
-
+                        message: {
+                            Text("Are you sure to Check In?")
+                        }
+                            
                             
                             Button {
                                 isShowingConfirmationDialog_CheckOut = true
@@ -189,10 +189,10 @@ struct singleTeacherDetailView: View {
                             .clipShape(RoundedRectangle(cornerRadius: 10))
                             .confirmationDialog("Are you sure to Check Out ?", isPresented: $isShowingConfirmationDialog_CheckOut) {
                                 Button("Confirm", role : .destructive) { daycare.teacherCheckedOut() }
-
+                                
                             }
                         message: {
-                      Text("Are you sure to Check Out?")
+                            Text("Are you sure to Check Out?")
                         }
                             
                             Spacer()
@@ -201,44 +201,44 @@ struct singleTeacherDetailView: View {
                         // group 3: select month and see timesheet
                         Group{
                             HStack{
-                            // left: picker
-                            Text("Choose month")
-                            
-                            Picker("Tap me", selection : $selectedMonth){
-                                Text("No Selection").tag(0).frame(width: 100)
-                                Group{
-                                    Text("January").tag(1).frame(width: 100)
-                                    Text("Febuary").tag(2).frame(width: 100)
-                                    Text("March").tag(3).frame(width: 100)
-                                    Text("April").tag(4).frame(width: 100)
-                                    Text("May").tag(5).frame(width: 100)
-                                    Text("June").tag(6).frame(width: 100)
+                                // left: picker
+                                Text("Choose month")
+                                
+                                Picker("Tap me", selection : $selectedMonth){
+                                    Text("No Selection").tag(0).frame(width: 100)
+                                    Group{
+                                        Text("January").tag(1).frame(width: 100)
+                                        Text("Febuary").tag(2).frame(width: 100)
+                                        Text("March").tag(3).frame(width: 100)
+                                        Text("April").tag(4).frame(width: 100)
+                                        Text("May").tag(5).frame(width: 100)
+                                        Text("June").tag(6).frame(width: 100)
+                                    }
+                                    Group{
+                                        Text("July").tag(7).frame(width: 100)
+                                        Text("Augest").tag(8).frame(width: 100)
+                                        Text("September").tag(9).frame(width: 100)
+                                        Text("October").tag(10).frame(width: 100)
+                                        Text("November").tag(11).frame(width: 100)
+                                        Text("December").tag(12).frame(width: 100)
+                                    }
                                 }
-                                Group{
-                                    Text("July").tag(7).frame(width: 100)
-                                    Text("Augest").tag(8).frame(width: 100)
-                                    Text("September").tag(9).frame(width: 100)
-                                    Text("October").tag(10).frame(width: 100)
-                                    Text("November").tag(11).frame(width: 100)
-                                    Text("December").tag(12).frame(width: 100)
-                                }
+                                .pickerStyle(MenuPickerStyle())
                             }
-                            .pickerStyle(MenuPickerStyle())
-                        }
                             
                             Button {
-                            if selectedMonth != 0{
-                                daycare.selectedMonth = selectedMonth
-                                daycare.fetchTeacherTimeSheetGivenMonth()
-                                showTimesheet = true
+                                if selectedMonth != 0{
+                                    daycare.selectedMonth = selectedMonth
+                                    daycare.fetchTeacherTimeSheetGivenMonth()
+                                    showTimesheet = true
+                                }
+                                
+                            } label: {
+                                HStack{
+                                    Image(systemName: "rectangle.split.3x3")
+                                    Text("Show Selected Month Timesheet")
+                                }
                             }
-                            
-                        } label: {
-                            HStack{
-                                Image(systemName: "rectangle.split.3x3")
-                                Text("Show Selected Month Timesheet")
-                            }
-                        }
                             .padding()
                             .foregroundColor(.white)
                             .background(Color.orange)
@@ -273,7 +273,7 @@ struct singleTeacherDetailView: View {
                                 .foregroundColor(.white)
                                 .background(Color.orange)
                                 .clipShape(RoundedRectangle(cornerRadius: 5))
-
+                                
                             }
                         }
                         
@@ -285,7 +285,7 @@ struct singleTeacherDetailView: View {
                     UpdateProfileSheet(showUpdateSheet: $showUpdateSheet, role: $role, field: $field)
                 }
                 
-
+                
             }
             else{
                 // show time sheet
@@ -370,7 +370,7 @@ struct singleTeacherDetailView: View {
                                     Text("Go back")
                                 }
                             }
-
+                            
                         }
                         
                     }
@@ -383,6 +383,6 @@ struct singleTeacherDetailView: View {
             
         }
     }
-        
+    
 }
 

@@ -29,7 +29,6 @@ struct homeView: View {
                         }
                     }
                     .tag(0)
-                //.onAppear(perform: daycare.getTeacherList)
                 
                 // student list view
                 StudentListView()
@@ -40,9 +39,6 @@ struct homeView: View {
                         }
                     }
                     .tag(1)
-                //.onAppear(perform: daycare.getTeacherList)
-                // classroom list view
-                // school information view
             }
         }
         else{
