@@ -24,6 +24,7 @@ class DayCareClass: ObservableObject{
     @Published var timeSheets : [timeSheet] = [timeSheet]()
     @Published var errorMsg1 : String = ""
     @Published var errorMsg2 : String = ""
+    @Published var showErrorMsg1 : Bool = false
     @Published var currentSignedInUserRole : String = ""
     @Published var currentSignedInUserUID : String = ""
     
@@ -611,9 +612,15 @@ class DayCareClass: ObservableObject{
             if error == nil{
                 self.isSignedIn()
                 self.errorMsg1 = ""
+                self.showErrorMsg1 = false
                 self.checkCurrentSignedUserRole(email: email)
+                //fresh database
+                self.getTeacherList()
+                self.getStudentList()
+                
             }
             else{
+                self.showErrorMsg1 = true
                 self.errorMsg1 = error!.localizedDescription
             }
         }
@@ -672,6 +679,12 @@ class DayCareClass: ObservableObject{
                         }
                     }
                 }
+            }
+            else{
+                if error != nil {
+                    self.errorMsg2 = error!.localizedDescription
+                }
+                
             }
         }
         db.collection("Student List").whereField("UID", isEqualTo: UID).getDocuments { querySnapShot, error in
