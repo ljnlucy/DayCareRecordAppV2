@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import LocalAuthentication
 
 struct launchingScreen: View {
     @EnvironmentObject var daycare : DayCareClass
@@ -19,6 +20,8 @@ struct launchingScreen: View {
     @State var acceptTerms : Bool = false
     @FocusState private var focusedField: FormField?
     @AppStorage("rememberPassword") var rememberPassword : Bool = false
+    @AppStorage("enableBioLoginNextTime") var enableBioLoginNextTime : Bool = false
+
     @State var showErrorMsg1 : Bool = false
     @State var showErrorMsg2 : Bool = false
 
@@ -73,7 +76,10 @@ struct launchingScreen: View {
                             }
                             Divider()
                             Toggle(isOn: $rememberPassword){
-                                    Text("Remember Password")
+                                Text("Remember Password")
+                            }
+                            Toggle(isOn: $enableBioLoginNextTime){
+                                Text("Enable Touch ID or Face ID Login")
                             }
                         }
                         
@@ -87,29 +93,53 @@ struct launchingScreen: View {
                             }
                     }
                     
-                    Button {
-                        // sign in
-                        daycare.signIn(email: email, password: password)
-                        
-                        
-                        // update appstorage property, update email and password
-                        email = email
-                        rememberPassword = rememberPassword
-                        // add a button to allow user to choose remember password or not.
-                        if rememberPassword == true {
-                            password = password
+                    HStack{
+                        Button {
+                            // sign in
+                            daycare.signIn(email: email, password: password)
+                            
+                            
+                            // update appstorage property, update email and password
+                            email = email
+                            rememberPassword = rememberPassword
+                            // add a button to allow user to choose remember password or not.
+                            if rememberPassword == true {
+                                password = password
+                            }
+                            else {
+                                password = ""
+                            }
+                        } label: {
+                            Text("SIGN IN")
                         }
-                        else {
-                            password = ""
-                        }
-                    } label: {
-                        Text("SIGN IN")
+                        .padding()
+                        .foregroundColor(.white)
+                        .background(Color.teal)
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
                         
+                        Button {
+                            // enable bio login next time. store this flag
+                            enableBioLoginNextTime = true
+                            
+                            // sign in
+                            authenticate()
+                        } label: {
+                            //Touch ID
+                            Text("SIGN IN").foregroundColor(.teal)
+                                .overlay {
+                                    Image(systemName: "touchid")
+                                }
+                        }
+                        .padding()
+                        .foregroundColor(.white)
+                        .background(Color.teal)
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                        .onAppear {
+                            if enableBioLoginNextTime == true {
+                                authenticate()
+                            }
+                        }
                     }
-                    .padding()
-                    .foregroundColor(.white)
-                    .background(Color.teal)
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
 
                     
                     HStack{
@@ -235,6 +265,47 @@ struct launchingScreen: View {
     enum FormField {
         case email, password, email2, password2, UID
       }
+    
+    func authenticate() {
+        let context = LAContext()
+        var error: NSError?
+
+        // check whether biometric authentication is possible
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+            // it's possible, so go ahead and use it
+            print("this device does support biometric")
+            let reason = "To make login easier."
+
+            context.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { success, authenticationError in
+                // authentication has now completed
+                if success {
+                    // authenticated successfully
+                    print("bio authentication successfully")
+                    
+                    // perform login using user name and password
+                    daycare.signIn(email: email, password: password)
+                    email = email
+                    rememberPassword = rememberPassword
+                    // add a button to allow user to choose remember password or not.
+                    if rememberPassword == true {
+                        password = password
+                    }
+                    else {
+                        password = ""
+                    }
+                    
+                } else {
+                    // there was a problem
+                    print("bio authentication failured")
+                    
+                    // show an alert window to user
+                }
+            }
+        } else {
+            // no biometrics
+            print("this device doesn't support biometric")
+        }
+    }
 }
 
 struct launchingScreen_Previews: PreviewProvider {
