@@ -29,13 +29,18 @@ struct launchingScreen: View {
     
     var body: some View {
         
-        ScrollView(showsIndicators: false){
+        //ScrollView(showsIndicators: false){
+        VStack{
             VStack{
                 Image("background2")
-                        .resizable()
+                    .resizable()
                     .scaledToFit()
-                    .frame(maxHeight : 300)
+                    .layoutPriority(-1.0)
+                    //.frame(maxHeight : 300)
+                
+                
                     
+                
                 if chooseSignUp == false{
                     // log in view
                     Group{
@@ -79,7 +84,7 @@ struct launchingScreen: View {
                                 Text("Remember Password")
                             }
                             Toggle(isOn: $enableBioLoginNextTime){
-                                Text("Enable Touch ID or Face ID Login")
+                                Text("Enable Bio Login Next Time")
                             }
                         }
                         
@@ -236,7 +241,7 @@ struct launchingScreen: View {
                     } label: {
                         Text("Back to SIGN IN page")
                             .foregroundColor(.blue).bold()
-                            .padding(.bottom)
+                            //.padding(.bottom)
                     }
                     
                     Link(destination: URL(string: "https://www.freeprivacypolicy.com/live/3b3e060e-1468-404a-940a-9cadc536bfaa")!) {
@@ -244,6 +249,8 @@ struct launchingScreen: View {
                     }
                     
                 }
+                
+                
             }
             .padding(.horizontal)
             .frame(maxWidth : .infinity)

@@ -90,8 +90,8 @@ class DayCareClass: ObservableObject{
                 }
                 DispatchQueue.main.async {
                     self.teacherList = teachers
-                    print("number of teacher")
-                    print(self.teacherList.count)
+                    //print("number of teacher")
+                    //print(self.teacherList.count)
                 }
             }
             
@@ -639,8 +639,8 @@ class DayCareClass: ObservableObject{
                 DispatchQueue.main.async {
                     self.currentSignedInUserRole = role
                     self.currentSignedInUserUID = UID
-                    print("current user role is " + role)
-                    print("current user UID is " + UID)
+                    //print("current user role is " + role)
+                    //print("current user UID is " + UID)
                     
                     
                     // speical code only for student
