@@ -7,6 +7,8 @@
 
 import SwiftUI
 import LocalAuthentication
+import FirebaseAuth
+
 
 struct launchingScreen: View {
     @EnvironmentObject var daycare : DayCareClass
@@ -75,8 +77,21 @@ struct launchingScreen: View {
                                 } label: {
                                     Text("Forget Password").foregroundColor(.gray).font(.caption)
                                 }
-                                .alert("Please contact Administrator to reset", isPresented: $showForgetPasswordPopup) {
-                                    Button("OK", role: .cancel) { }
+                                .alert("Check your email to reset your password", isPresented: $showForgetPasswordPopup) {
+                                    Button("OK", role: .cancel) {
+                                        guard email != "" else{
+                                            return
+                                        }
+                                        Auth.auth().sendPasswordReset(withEmail: email) { error in
+                                            if error == nil {
+                                                print("password reset email is sent out successfully")
+                                            }
+                                            else{
+                                                print(error!.localizedDescription)
+                                                print("password reset email is not sent out successfully")
+                                            }
+                                        }
+                                    }
                                 }
                             }
                             Divider()
