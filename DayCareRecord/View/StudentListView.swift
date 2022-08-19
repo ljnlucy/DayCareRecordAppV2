@@ -35,6 +35,15 @@ struct StudentListView: View {
                                 Spacer()
                             }
                         }
+                        .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+                            Button {
+                                daycare.deleteStudentProfile_swipeMethod(student: student)
+                            } label: {
+                                Image(systemName: "trash")
+                            }
+                            .tint(.red)
+
+                        }
                     }
                     
                     

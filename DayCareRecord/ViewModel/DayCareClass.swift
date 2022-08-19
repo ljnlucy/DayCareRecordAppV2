@@ -136,6 +136,7 @@ class DayCareClass: ObservableObject{
         var compressedImageData : Data = originalImage.aspectFittedToHeight(160).jpegData(compressionQuality: 0.0) ?? Data()
         var parentPath = "images/teacher/"
         var childPath = "\(UID).jpg"
+        var downloadUrl = ""
         
         let storageRef = storage.reference(withPath: parentPath + childPath)
         
@@ -143,16 +144,32 @@ class DayCareClass: ObservableObject{
             storageRef.putData(compressedImageData) { meta, error in
                 // create teacher profile + image url
                 if error == nil{
-                    self.db.collection("Teacher List").document(UID).setData(["name" : name,
-                                                                               "UID" : UID,
-                                                                               "nickName" : nickName,
-                                                                               "isCheckedIn" : false,
-                                                                               "imageUrl" : parentPath + childPath],
-                                                                              merge: true) { error in
-                        if error == nil{
-                            self.getTeacherList()
+                    // get profile image' download url
+                    storageRef.downloadURL { (url, error) in
+                        if url != nil{
+                            print("image url" + url!.absoluteString)
+                            downloadUrl = url!.absoluteString
                         }
+                        else{
+                            print("no image url")
+                        }
+                        
+                        self.db.collection("Teacher List").document(UID).setData(["name" : name,
+                                                                                   "UID" : UID,
+                                                                                   "nickName" : nickName,
+                                                                                   "isCheckedIn" : false,
+                                                                                  "downloadUrl" : url!.absoluteString,
+                                                                                   "imageUrl" : parentPath + childPath],
+                                                                                  merge: true) { error in
+                            if error == nil{
+                                self.getTeacherList()
+                            }
+                        }
+                        
                     }
+                    
+                    
+                    
                 }
             }
         }
@@ -289,6 +306,23 @@ class DayCareClass: ObservableObject{
         }
         
     }
+    
+    func deleteTeacherProfile_swipeMethod(teacher : Teacher) -> Void {
+        self.db.collection("Teacher List").document(teacher.UID!).delete { [self] error in
+            if error == nil{
+                // delete photo from storage as well
+                self.storage.reference(withPath: teacher.imageUrl!).delete { error2 in
+                    if error2 == nil{
+                        DispatchQueue.main.async {
+                            self.selectedTeacher = Teacher()
+                        }
+                    }
+                }
+                
+                
+            }
+        }
+    }
     func deleteStudentProfile() -> Void {
         self.db.collection("Student List").document(selectedStudent.UID!).delete { [self] error in
             if error == nil{
@@ -300,11 +334,24 @@ class DayCareClass: ObservableObject{
                         }
                     }
                 }
-                
-                
             }
         }
         
+    }
+    
+    func deleteStudentProfile_swipeMethod(student : Student) -> Void{
+        self.db.collection("Student List").document(student.UID!).delete { [self] error in
+            if error == nil{
+                // delete photo from storage as well
+                self.storage.reference(withPath: student.imageUrl!).delete { error2 in
+                    if error2 == nil{
+                        DispatchQueue.main.async {
+                            self.selectedStudent = Student()
+                        }
+                    }
+                }
+            }
+        }
     }
     
     func updateSelectedTeacherInfo() -> Void {

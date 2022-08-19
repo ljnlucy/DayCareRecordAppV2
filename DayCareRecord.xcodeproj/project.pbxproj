@@ -11,7 +11,6 @@
 		D80409EA287133BC002C0946 /* homeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80409E9287133BC002C0946 /* homeView.swift */; };
 		D80409EC287133BF002C0946 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D80409EB287133BF002C0946 /* Assets.xcassets */; };
 		D80409EF287133BF002C0946 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D80409EE287133BF002C0946 /* Preview Assets.xcassets */; };
-		D80409F6287134A2002C0946 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D80409F5287134A2002C0946 /* GoogleService-Info.plist */; };
 		D80409F9287134E3002C0946 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D80409F8287134E3002C0946 /* FirebaseAuth */; };
 		D80409FB287134E3002C0946 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D80409FA287134E3002C0946 /* FirebaseFirestore */; };
 		D80409FD287134E3002C0946 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = D80409FC287134E3002C0946 /* FirebaseStorage */; };
@@ -19,6 +18,7 @@
 		D8040A04287136A6002C0946 /* DayCareClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8040A03287136A6002C0946 /* DayCareClass.swift */; };
 		D8040A06287136B0002C0946 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8040A05287136AF002C0946 /* ImagePicker.swift */; };
 		D80B824828922D890096FD7C /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = D80B824728922D890096FD7C /* FirebaseMessaging */; };
+		D84235DD289AFCE300D2D2E7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D84235DC289AFCE200D2D2E7 /* GoogleService-Info.plist */; };
 		D85093192878B2A000E487D9 /* TeacherListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85093182878B2A000E487D9 /* TeacherListView.swift */; };
 		D850931B2878B41A00E487D9 /* singleTeacherDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D850931A2878B41A00E487D9 /* singleTeacherDetailView.swift */; };
 		D850931D2878C2C300E487D9 /* navigationLandingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D850931C2878C2C300E487D9 /* navigationLandingView.swift */; };
@@ -36,12 +36,12 @@
 		D80409E9287133BC002C0946 /* homeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = homeView.swift; sourceTree = "<group>"; };
 		D80409EB287133BF002C0946 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D80409EE287133BF002C0946 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		D80409F5287134A2002C0946 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D80409FF287135A4002C0946 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		D8040A03287136A6002C0946 /* DayCareClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayCareClass.swift; sourceTree = "<group>"; };
 		D8040A05287136AF002C0946 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		D8040A55287141A7002C0946 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D80B824928922E830096FD7C /* DayCareRecord.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DayCareRecord.entitlements; sourceTree = "<group>"; };
+		D84235DC289AFCE200D2D2E7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D85093182878B2A000E487D9 /* TeacherListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherListView.swift; sourceTree = "<group>"; };
 		D850931A2878B41A00E487D9 /* singleTeacherDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = singleTeacherDetailView.swift; sourceTree = "<group>"; };
 		D850931C2878C2C300E487D9 /* navigationLandingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = navigationLandingView.swift; sourceTree = "<group>"; };
@@ -94,7 +94,7 @@
 				D8040A022871361F002C0946 /* ViewModel */,
 				D80409FE28713594002C0946 /* Model */,
 				D80409EB287133BF002C0946 /* Assets.xcassets */,
-				D80409F5287134A2002C0946 /* GoogleService-Info.plist */,
+				D84235DC289AFCE200D2D2E7 /* GoogleService-Info.plist */,
 				D80409ED287133BF002C0946 /* Preview Content */,
 			);
 			path = DayCareRecord;
@@ -228,7 +228,7 @@
 			files = (
 				D80409EF287133BF002C0946 /* Preview Assets.xcassets in Resources */,
 				D80409EC287133BF002C0946 /* Assets.xcassets in Resources */,
-				D80409F6287134A2002C0946 /* GoogleService-Info.plist in Resources */,
+				D84235DD289AFCE300D2D2E7 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,6 +389,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = DayCareRecordApp;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "To make next login easier";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -399,8 +400,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2;
-				PRODUCT_BUNDLE_IDENTIFIER = JiananLi.DayCareRecord;
+				MARKETING_VERSION = 3.0;
+				PRODUCT_BUNDLE_IDENTIFIER = JiananLi.DayCareRecordApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -424,6 +425,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = DayCareRecordApp;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "To make next login easier";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -434,8 +436,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2;
-				PRODUCT_BUNDLE_IDENTIFIER = JiananLi.DayCareRecord;
+				MARKETING_VERSION = 3.0;
+				PRODUCT_BUNDLE_IDENTIFIER = JiananLi.DayCareRecordApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

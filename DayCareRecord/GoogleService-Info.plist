@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>265680396691-r2oanuuqlacc4ebp1tafo7f08muf59gk.apps.googleusercontent.com</string>
+	<string>265680396691-19gpflhmmjfq040rqnitrsamkggr71s4.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.265680396691-r2oanuuqlacc4ebp1tafo7f08muf59gk</string>
+	<string>com.googleusercontent.apps.265680396691-19gpflhmmjfq040rqnitrsamkggr71s4</string>
 	<key>API_KEY</key>
 	<string>AIzaSyA8jgz7mP8uJf2CcmMbn0Nu8aIzINlUGbU</string>
 	<key>GCM_SENDER_ID</key>
@@ -13,7 +13,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>JiananLi.DayCareRecord</string>
+	<string>JiananLi.DayCareRecordApp</string>
 	<key>PROJECT_ID</key>
 	<string>daycarerecord-5ec6f</string>
 	<key>STORAGE_BUCKET</key>
@@ -29,7 +29,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:265680396691:ios:4af36ee82f06a9ce14c866</string>
+	<string>1:265680396691:ios:5d5d834cf29b137d14c866</string>
 	<key>DATABASE_URL</key>
 	<string>https://daycarerecord-5ec6f-default-rtdb.firebaseio.com</string>
 </dict>

@@ -17,26 +17,37 @@ struct TeacherListView: View {
         else{
             NavigationView {
                 List {
-                    
-                        ForEach(daycare.teacherList){ teacher in
-                            NavigationLink {
-                                // single teacher detail view
-                                singleTeacherDetailView(/*teacher: teacher*/)
+                    ForEach(daycare.teacherList){ teacher in
+                        NavigationLink {
+                            // single teacher detail view
+                            singleTeacherDetailView()
                                 .onAppear {
-                                        daycare.selectedTeacher = teacher
+                                    daycare.selectedTeacher = teacher
                                 }
-                            } label: {
-                                HStack{
-                                    
-                                    Circle()
-                                        .foregroundColor(teacher.isCheckedIn ? .green : .red)
-                                        .frame(width: 20, height: 20)
-                                    Text(teacher.name ?? "No name")
-                                    Spacer()
-                                    //Image(systemName: "chevron.right")
-                                }
+                        } label: {
+                            HStack{
+                                
+                                Circle()
+                                    .foregroundColor(teacher.isCheckedIn ? .green : .red)
+                                    .frame(width: 20, height: 20)
+                                Text(teacher.name ?? "No name")
+                                Spacer()
                             }
                         }
+                        .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+                            Button {
+                                // delete a teacher from data base
+                                print("swipe to delete a teacher")
+                                daycare.deleteTeacherProfile_swipeMethod(teacher: teacher)
+                            } label: {
+                                // a trash icon
+                                Image(systemName: "trash")
+                            }
+                            .tint(.red)
+
+                        }
+                    }
+                    
                     
                     
                 }
@@ -44,24 +55,24 @@ struct TeacherListView: View {
                 .toolbar {
                     HStack{
                         
+                        
+                        Button {
+                            // show a view to add teacher
+                            isAddTeacherSheetShow = true
+                        } label: {
+                            Image(systemName: "person.crop.circle.badge.plus")
+                        }
+                        Button {
+                            daycare.signOut()
+                        } label: {
+                            HStack{
+                                //Text("Sign Out").font(.caption2)
+                                Image(systemName: "square.and.arrow.up")
+                            }
+                            
+                        }
+                    }
                     
-                    Button {
-                        // show a view to add teacher
-                        isAddTeacherSheetShow = true
-                    } label: {
-                        Image(systemName: "person.crop.circle.badge.plus")
-                    }
-                    Button {
-                                        daycare.signOut()
-                                    } label: {
-                                        HStack{
-                                            //Text("Sign Out").font(.caption2)
-                                            Image(systemName: "square.and.arrow.up")
-                                        }
-                                        
-                                    }
-                    }
-
                 }
                 .sheet(isPresented: $isAddTeacherSheetShow) {
                     
