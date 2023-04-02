@@ -40,7 +40,7 @@ struct singleTeacherDetailView: View {
         case 7:
             return "July"
         case 8:
-            return "Augest"
+            return "August"
         case 9:
             return "September"
         case 10:

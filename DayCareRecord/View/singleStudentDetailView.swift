@@ -9,6 +9,7 @@ import SwiftUI
 
 struct singleStudentDetailView: View {
     @EnvironmentObject var daycare : DayCareClass
+    @State var selectedYear : Int = 0
     @State var selectedMonth : Int = 0
     @State var selectedClass : String = "No Class"
     @State var showTimesheet : Bool = false
@@ -38,7 +39,7 @@ struct singleStudentDetailView: View {
         case 7:
             return "July"
         case 8:
-            return "Augest"
+            return "August"
         case 9:
             return "September"
         case 10:
@@ -101,13 +102,13 @@ struct singleStudentDetailView: View {
                                     self.field = "Name"
                                     showUpdateSheet = true
                                 } label: {
-                                        Text("Update")
+                                    Text("Update")
                                 }
                                 .padding()
                                 .foregroundColor(.white)
                                 .background(Color.orange)
                                 .clipShape(RoundedRectangle(cornerRadius: 10))
-
+                                
                             }
                             
                             HStack{
@@ -120,12 +121,12 @@ struct singleStudentDetailView: View {
                                     showUpdateSheet = true
                                 } label: {
                                     Text("Update")
-                            }
-                            .padding()
-                            .foregroundColor(.white)
-                            .background(Color.orange)
-                            .clipShape(RoundedRectangle(cornerRadius: 10))
-
+                                }
+                                .padding()
+                                .foregroundColor(.white)
+                                .background(Color.orange)
+                                .clipShape(RoundedRectangle(cornerRadius: 10))
+                                
                             }
                             
                             
@@ -143,12 +144,12 @@ struct singleStudentDetailView: View {
                                         showUpdateSheet = true
                                     } label: {
                                         Text("Update")
-                                }
-                                .padding()
-                                .foregroundColor(.white)
-                                .background(Color.orange)
-                                .clipShape(RoundedRectangle(cornerRadius: 10))
-
+                                    }
+                                    .padding()
+                                    .foregroundColor(.white)
+                                    .background(Color.orange)
+                                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                                    
                                 }
                                 HStack{
                                     Text("Phone: " + "\(daycare.selectedStudent.guardianPhone ?? "")")
@@ -157,13 +158,13 @@ struct singleStudentDetailView: View {
                                     
                                     
                                     Link(destination: URL(string: "tel:\(daycare.selectedStudent.guardianPhone ?? "")")!) {
-                                                Image(systemName: "phone.arrow.up.right")
-                                                    .foregroundColor(.white)
-                                                    .padding()
-                                                    .background(Color.green)
-                                                    .clipShape(Circle())
-                                            
-                                        }
+                                        Image(systemName: "phone.arrow.up.right")
+                                            .foregroundColor(.white)
+                                            .padding()
+                                            .background(Color.green)
+                                            .clipShape(Circle())
+                                        
+                                    }
                                     
                                     
                                     
@@ -174,25 +175,25 @@ struct singleStudentDetailView: View {
                                         showUpdateSheet = true
                                     } label: {
                                         Text("Update")
-                                }
-                                .padding()
-                                .foregroundColor(.white)
-                                .background(Color.orange)
-                                .clipShape(RoundedRectangle(cornerRadius: 10))
-
+                                    }
+                                    .padding()
+                                    .foregroundColor(.white)
+                                    .background(Color.orange)
+                                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                                    
                                 }
                                 HStack{
                                     Text("Email: " + (daycare.selectedStudent.guardianEmail ?? ""))
                                     Spacer()
                                     
                                     Link(destination: URL(string: "mailto:\(daycare.selectedStudent.guardianEmail ?? "")")!) {
-                                                Image(systemName: "envelope")
-                                                    .foregroundColor(.white)
-                                                    .padding()
-                                                    .background(Color.blue)
-                                                    .clipShape(Circle())
-                                        }
-
+                                        Image(systemName: "envelope")
+                                            .foregroundColor(.white)
+                                            .padding()
+                                            .background(Color.blue)
+                                            .clipShape(Circle())
+                                    }
+                                    
                                     Button {
                                         // to show a sheet
                                         self.role = "student"
@@ -200,12 +201,12 @@ struct singleStudentDetailView: View {
                                         showUpdateSheet = true
                                     } label: {
                                         Text("Update")
-                                }
-                                .padding()
-                                .foregroundColor(.white)
-                                .background(Color.orange)
-                                .clipShape(RoundedRectangle(cornerRadius: 10))
-
+                                    }
+                                    .padding()
+                                    .foregroundColor(.white)
+                                    .background(Color.orange)
+                                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                                    
                                 }
                                 HStack{
                                     Text("Guardian2: " + (daycare.selectedStudent.guardian2Name ?? ""))
@@ -217,24 +218,24 @@ struct singleStudentDetailView: View {
                                         showUpdateSheet = true
                                     } label: {
                                         Text("Update")
-                                }
-                                .padding()
-                                .foregroundColor(.white)
-                                .background(Color.orange)
-                                .clipShape(RoundedRectangle(cornerRadius: 10))
-
+                                    }
+                                    .padding()
+                                    .foregroundColor(.white)
+                                    .background(Color.orange)
+                                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                                    
                                 }
                                 HStack{
                                     Text("Phone: " + "\(daycare.selectedStudent.guardian2Phone ?? "")")
                                     Spacer()
                                     
                                     Link(destination: URL(string: "tel:\(daycare.selectedStudent.guardian2Phone ?? "")")!) {
-                                                Image(systemName: "phone.arrow.up.right")
-                                                    .foregroundColor(.white)
-                                                    .padding()
-                                                    .background(Color.green)
-                                                    .clipShape(Circle())
-                                        }
+                                        Image(systemName: "phone.arrow.up.right")
+                                            .foregroundColor(.white)
+                                            .padding()
+                                            .background(Color.green)
+                                            .clipShape(Circle())
+                                    }
                                     Button {
                                         // to show a sheet
                                         self.role = "student"
@@ -242,24 +243,24 @@ struct singleStudentDetailView: View {
                                         showUpdateSheet = true
                                     } label: {
                                         Text("Update")
-                                }
-                                .padding()
-                                .foregroundColor(.white)
-                                .background(Color.orange)
-                                .clipShape(RoundedRectangle(cornerRadius: 10))
-
+                                    }
+                                    .padding()
+                                    .foregroundColor(.white)
+                                    .background(Color.orange)
+                                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                                    
                                 }
                                 HStack{
                                     Text("Email: " + (daycare.selectedStudent.guardian2Email ?? ""))
                                     Spacer()
                                     Link(destination: URL(string: "mailto:\(daycare.selectedStudent.guardian2Email ?? "")")!) {
-                                                Image(systemName: "envelope").padding()
-                                                    .foregroundColor(.white)
-                                                    //.padding()
-                                                    .background(Color.blue)
-                                                    .clipShape(Circle())
-                                        }
-
+                                        Image(systemName: "envelope").padding()
+                                            .foregroundColor(.white)
+                                        //.padding()
+                                            .background(Color.blue)
+                                            .clipShape(Circle())
+                                    }
+                                    
                                     Button {
                                         // to show a sheet
                                         self.role = "student"
@@ -267,12 +268,12 @@ struct singleStudentDetailView: View {
                                         showUpdateSheet = true
                                     } label: {
                                         Text("Update")
-                                }
-                                .padding()
-                                .foregroundColor(.white)
-                                .background(Color.orange)
-                                .clipShape(RoundedRectangle(cornerRadius: 10))
-
+                                    }
+                                    .padding()
+                                    .foregroundColor(.white)
+                                    .background(Color.orange)
+                                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                                    
                                 }
                             }
                             
@@ -296,33 +297,33 @@ struct singleStudentDetailView: View {
                                 //daycare.studentCheckedIn()
                                 isShowingConfirmationDialog_CheckIn = true
                             } label: {
-                                    HStack{
-                                        Image(systemName: "square.and.arrow.down")
-                                        Text("Check In")
-                                    }
+                                HStack{
+                                    Image(systemName: "square.and.arrow.down")
+                                    Text("Check In")
+                                }
                             }
-                        .padding()
-                        .foregroundColor(.white)
-                        .background(Color.green)
-                        .clipShape(RoundedRectangle(cornerRadius: 10))
-                        .confirmationDialog("Are you sure to Check In?", isPresented: $isShowingConfirmationDialog_CheckIn) {
-                            Button("Confirm", role : .destructive){
-                                daycare.studentCheckedIn()
+                            .padding()
+                            .foregroundColor(.white)
+                            .background(Color.green)
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                            .confirmationDialog("Are you sure to Check In?", isPresented: $isShowingConfirmationDialog_CheckIn) {
+                                Button("Confirm", role : .destructive){
+                                    daycare.studentCheckedIn()
+                                }
+                            } message: {
+                                Text("Are you sure to Check In?")
                             }
-                        } message: {
-                            Text("Are you sure to Check In?")
-                        }
-
+                            
                             
                             
                             Button {
                                 isShowingConfirmationDialog_CheckOut = true
-
+                                
                                 //daycare.studentCheckedOut()
                             } label: {
-                                    HStack{
-                                        Image(systemName: "square.and.arrow.up")
-                                        Text("Check Out")
+                                HStack{
+                                    Image(systemName: "square.and.arrow.up")
+                                    Text("Check Out")
                                 }
                             }
                             .padding()
@@ -333,9 +334,9 @@ struct singleStudentDetailView: View {
                                 Button("Confirm", role : .destructive){
                                     daycare.studentCheckedOut()
                                 }
-//                                Button("Cancel"){
-//                                    isShowingConfirmationDialog_CheckOut = false
-//                                }
+                                //                                Button("Cancel"){
+                                //                                    isShowingConfirmationDialog_CheckOut = false
+                                //                                }
                             } message: {
                                 Text("Are you sure to Check Out?")
                             }
@@ -346,48 +347,61 @@ struct singleStudentDetailView: View {
                         // group 3: select month and see timesheet
                         Group{
                             HStack{
-                            // left: picker
-                            Text("Choose month")
-                            
-                            Picker("Tap me", selection : $selectedMonth){
-                                Text("No Selection").tag(0).frame(width: 100)
-                                Group{
-                                    Text("January").tag(1).frame(width: 100)
-                                    Text("Febuary").tag(2).frame(width: 100)
-                                    Text("March").tag(3).frame(width: 100)
-                                    Text("April").tag(4).frame(width: 100)
-                                    Text("May").tag(5).frame(width: 100)
-                                    Text("June").tag(6).frame(width: 100)
+                                Text("Choose year")
+                                Picker("Tap me", selection : $selectedYear){
+                                    Text("No Selection").tag(0).frame(width: 100)
+                                    Group{
+                                        Text("2022").tag(1).frame(width: 100)
+                                        Text("2023").tag(2).frame(width: 100)
+                                        Text("2024").tag(3).frame(width: 100)
+                                        Text("2025").tag(4).frame(width: 100)
+                                    }
                                 }
-                                Group{
-                                    Text("July").tag(7).frame(width: 100)
-                                    Text("Augest").tag(8).frame(width: 100)
-                                    Text("September").tag(9).frame(width: 100)
-                                    Text("October").tag(10).frame(width: 100)
-                                    Text("November").tag(11).frame(width: 100)
-                                    Text("December").tag(12).frame(width: 100)
-                                }
+                                .pickerStyle(MenuPickerStyle())
                             }
-                            .pickerStyle(MenuPickerStyle())
-                        }
+                            HStack{
+                                // left: picker
+                                Text("Choose month")
+                                
+                                Picker("Tap me", selection : $selectedMonth){
+                                    Text("No Selection").tag(0).frame(width: 100)
+                                    Group{
+                                        Text("January").tag(1).frame(width: 100)
+                                        Text("Febuary").tag(2).frame(width: 100)
+                                        Text("March").tag(3).frame(width: 100)
+                                        Text("April").tag(4).frame(width: 100)
+                                        Text("May").tag(5).frame(width: 100)
+                                        Text("June").tag(6).frame(width: 100)
+                                    }
+                                    Group{
+                                        Text("July").tag(7).frame(width: 100)
+                                        Text("August").tag(8).frame(width: 100)
+                                        Text("September").tag(9).frame(width: 100)
+                                        Text("October").tag(10).frame(width: 100)
+                                        Text("November").tag(11).frame(width: 100)
+                                        Text("December").tag(12).frame(width: 100)
+                                    }
+                                }
+                                .pickerStyle(MenuPickerStyle())
+                            }
                             
                             Button {
-                            if selectedMonth != 0{
-                                daycare.selectedMonth = selectedMonth
-                                daycare.fetchStudentTimeSheetGivenMonth()
-                                showTimesheet = true
-                            }
-                            
-                        } label: {
+                                if selectedMonth != 0 && selectedYear != 0{
+                                    daycare.selectedMonth = selectedMonth
+                                    daycare.fetchStudentTimeSheetGivenMonth()
+                                    showTimesheet = true
+                                }
+                                
+                            } label: {
                                 HStack{
                                     Image(systemName: "rectangle.split.3x3")
                                     Text("Show Selected Month Timesheet")
                                 }
-                        }
-                        .padding()
-                        .foregroundColor(.white)
-                        .background(Color.orange)
-                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                            }
+                            .padding()
+                            .foregroundColor(.white)
+                            .background(Color.orange)
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
                             
                         }
                         
@@ -409,16 +423,16 @@ struct singleStudentDetailView: View {
                                     // assign class, update backend data
                                     daycare.assignClassStudent(group: selectedClass)
                                 } label: {
-                                        HStack{
-                                            Image(systemName: "icloud.and.arrow.up")
-                                            Text("Assign to selected class")
-                                        }
+                                    HStack{
+                                        Image(systemName: "icloud.and.arrow.up")
+                                        Text("Assign to selected class")
+                                    }
                                 }
                                 .padding()
                                 .foregroundColor(.white)
                                 .background(Color.orange)
                                 .clipShape(RoundedRectangle(cornerRadius: 10))
-
+                                
                             }
                         }
                         
@@ -510,7 +524,7 @@ struct singleStudentDetailView: View {
                                     Text("Go back")
                                 }
                             }
-
+                            
                         }
                         
                     }

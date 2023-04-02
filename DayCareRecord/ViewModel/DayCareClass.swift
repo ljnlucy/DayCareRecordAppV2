@@ -507,6 +507,8 @@ class DayCareClass: ObservableObject{
         self.startDate = self.monthArray[self.selectedMonth - 1]
         self.endDate = self.monthArray[self.selectedMonth]
         
+        
+        
         guard selectedTeacher.UID != nil else{
             return
         }
