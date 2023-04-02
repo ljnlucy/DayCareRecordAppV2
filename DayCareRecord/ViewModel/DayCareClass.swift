@@ -41,19 +41,9 @@ class DayCareClass: ObservableObject{
     
     //
     @Published var selectedMonth : Int = 1
-    var monthArray : [Date] = [Calendar.current.date(from: DateComponents(year : 2022, month: 1, day: 1, hour: 0, minute: 0, second: 0))!,
-                               Calendar.current.date(from: DateComponents(year : 2022, month: 2, day: 1, hour: 0, minute: 0, second: 0))!,
-                               Calendar.current.date(from: DateComponents(year : 2022, month: 3, day: 1, hour: 0, minute: 0, second: 0))!,
-                               Calendar.current.date(from: DateComponents(year : 2022, month: 4, day: 1, hour: 0, minute: 0, second: 0))!,
-                               Calendar.current.date(from: DateComponents(year : 2022, month: 5, day: 1, hour: 0, minute: 0, second: 0))!,
-                               Calendar.current.date(from: DateComponents(year : 2022, month: 6, day: 1, hour: 0, minute: 0, second: 0))!,
-                               Calendar.current.date(from: DateComponents(year : 2022, month: 7, day: 1, hour: 0, minute: 0, second: 0))!,
-                               Calendar.current.date(from: DateComponents(year : 2022, month: 8, day: 1, hour: 0, minute: 0, second: 0))!,
-                               Calendar.current.date(from: DateComponents(year : 2022, month: 9, day: 1, hour: 0, minute: 0, second: 0))!,
-                               Calendar.current.date(from: DateComponents(year : 2022, month: 10, day: 1, hour: 0, minute: 0, second: 0))!,
-                               Calendar.current.date(from: DateComponents(year : 2022, month: 11, day: 1, hour: 0, minute: 0, second: 0))!,
-                               Calendar.current.date(from: DateComponents(year : 2022, month: 12, day: 1, hour: 0, minute: 0, second: 0))!,
-                               Calendar.current.date(from: DateComponents(year : 2023, month: 1, day: 1, hour: 0, minute: 0, second: 0))!]
+    @Published var selectedYear : Int = 1
+    
+    
     var startDate = Calendar.current.date(from: DateComponents(year : 2022, month: 1, day: 1, hour: 0, minute: 0, second: 0))!
     var endDate = Calendar.current.date(from: DateComponents(year : 2022, month: 1, day: 1, hour: 0, minute: 0, second: 0))!
     var dateFormatter : DateFormatter = DateFormatter()
@@ -122,6 +112,26 @@ class DayCareClass: ObservableObject{
                 }
                 DispatchQueue.main.async {
                     self.studentList = students.sorted{$0.studentName! < $1.studentName!}
+                }
+            }
+            
+        }
+    }
+    func getClassList() -> Void {
+        let classRoomCollection = db.collection("classRoom List")
+        classRoomCollection.getDocuments { querySnapshot, error in
+            if error == nil && querySnapshot != nil {
+                var classroom = [classRoom]()
+                for doc in querySnapshot!.documents {
+                    var c : classRoom = classRoom()
+                    //c.id = UUID()
+                    c.classRoomName = doc["classRoomName"] as? String ?? nil
+                    c.classRoomDescription = doc["classRoomDescription"] as? String ?? nil
+                    c.imageUrl = doc["imageUrl"] as? String ?? nil
+                    classroom.append(c)
+                }
+                DispatchQueue.main.async {
+                    self.classRoomList = classroom
                 }
             }
             
@@ -502,12 +512,25 @@ class DayCareClass: ObservableObject{
     
     
     func fetchTeacherTimeSheetGivenMonth() -> Void{
+        var monthArray : [Date] = [Calendar.current.date(from: DateComponents(year : selectedYear + 2021, month: 1, day: 1, hour:                             0, minute: 0, second: 0))!,
+                                   Calendar.current.date(from: DateComponents(year : selectedYear + 2021, month: 2, day: 1, hour: 0, minute: 0, second: 0))!,
+                                   Calendar.current.date(from: DateComponents(year : selectedYear + 2021, month: 3, day: 1, hour: 0, minute: 0, second: 0))!,
+                                   Calendar.current.date(from: DateComponents(year : selectedYear + 2021, month: 4, day: 1, hour: 0, minute: 0, second: 0))!,
+                                   Calendar.current.date(from: DateComponents(year : selectedYear + 2021, month: 5, day: 1, hour: 0, minute: 0, second: 0))!,
+                                   Calendar.current.date(from: DateComponents(year : selectedYear + 2021, month: 6, day: 1, hour: 0, minute: 0, second: 0))!,
+                                   Calendar.current.date(from: DateComponents(year : selectedYear + 2021, month: 7, day: 1, hour: 0, minute: 0, second: 0))!,
+                                   Calendar.current.date(from: DateComponents(year : selectedYear + 2021, month: 8, day: 1, hour: 0, minute: 0, second: 0))!,
+                                   Calendar.current.date(from: DateComponents(year : selectedYear + 2021, month: 9, day: 1, hour: 0, minute: 0, second: 0))!,
+                                   Calendar.current.date(from: DateComponents(year : selectedYear + 2021, month: 10, day: 1, hour: 0, minute: 0, second: 0))!,
+                                   Calendar.current.date(from: DateComponents(year : selectedYear + 2021, month: 11, day: 1, hour: 0, minute: 0, second: 0))!,
+                                   Calendar.current.date(from: DateComponents(year : selectedYear + 2021, month: 12, day: 1, hour: 0, minute: 0, second: 0))!,
+                                   Calendar.current.date(from: DateComponents(year : selectedYear + 2022, month: 1, day: 1, hour: 0, minute: 0, second: 0))!]
+
+        
         
         // write a logic to set startDate and endDate
-        self.startDate = self.monthArray[self.selectedMonth - 1]
-        self.endDate = self.monthArray[self.selectedMonth]
-        
-        
+        self.startDate = monthArray[self.selectedMonth - 1]
+        self.endDate = monthArray[self.selectedMonth]
         
         guard selectedTeacher.UID != nil else{
             return
@@ -536,10 +559,24 @@ class DayCareClass: ObservableObject{
     
     }
     func fetchStudentTimeSheetGivenMonth() -> Void{
+        var monthArray : [Date] = [Calendar.current.date(from: DateComponents(year : selectedYear + 2021, month: 1, day: 1, hour:                             0, minute: 0, second: 0))!,
+                                   Calendar.current.date(from: DateComponents(year : selectedYear + 2021, month: 2, day: 1, hour: 0, minute: 0, second: 0))!,
+                                   Calendar.current.date(from: DateComponents(year : selectedYear + 2021, month: 3, day: 1, hour: 0, minute: 0, second: 0))!,
+                                   Calendar.current.date(from: DateComponents(year : selectedYear + 2021, month: 4, day: 1, hour: 0, minute: 0, second: 0))!,
+                                   Calendar.current.date(from: DateComponents(year : selectedYear + 2021, month: 5, day: 1, hour: 0, minute: 0, second: 0))!,
+                                   Calendar.current.date(from: DateComponents(year : selectedYear + 2021, month: 6, day: 1, hour: 0, minute: 0, second: 0))!,
+                                   Calendar.current.date(from: DateComponents(year : selectedYear + 2021, month: 7, day: 1, hour: 0, minute: 0, second: 0))!,
+                                   Calendar.current.date(from: DateComponents(year : selectedYear + 2021, month: 8, day: 1, hour: 0, minute: 0, second: 0))!,
+                                   Calendar.current.date(from: DateComponents(year : selectedYear + 2021, month: 9, day: 1, hour: 0, minute: 0, second: 0))!,
+                                   Calendar.current.date(from: DateComponents(year : selectedYear + 2021, month: 10, day: 1, hour: 0, minute: 0, second: 0))!,
+                                   Calendar.current.date(from: DateComponents(year : selectedYear + 2021, month: 11, day: 1, hour: 0, minute: 0, second: 0))!,
+                                   Calendar.current.date(from: DateComponents(year : selectedYear + 2021, month: 12, day: 1, hour: 0, minute: 0, second: 0))!,
+                                   Calendar.current.date(from: DateComponents(year : selectedYear + 2022, month: 1, day: 1, hour: 0, minute: 0, second: 0))!]
+
         
         // write a logic to set startDate and endDate
-        self.startDate = self.monthArray[self.selectedMonth - 1]
-        self.endDate = self.monthArray[self.selectedMonth]
+        self.startDate = monthArray[self.selectedMonth - 1]
+        self.endDate = monthArray[self.selectedMonth]
         
         guard selectedStudent.UID != nil else{
             return

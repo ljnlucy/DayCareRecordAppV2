@@ -39,6 +39,16 @@ struct homeView: View {
                         }
                     }
                     .tag(1)
+                
+                // classroom list view
+                ClassroomListView()
+                    .tabItem {
+                        HStack{
+                            Image(systemName: "studentdesk")
+                            Text("Class")
+                        }
+                    }
+                    .tag(2)
             }
         }
         else{

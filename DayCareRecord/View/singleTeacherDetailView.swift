@@ -9,6 +9,7 @@ import SwiftUI
 
 struct singleTeacherDetailView: View {
     @EnvironmentObject var daycare : DayCareClass
+    @State var selectedYear : Int = 0
     @State var selectedMonth : Int = 0
     @State var selectedClass : String = "No Class"
     @State var showTimesheet : Bool = false
@@ -201,6 +202,19 @@ struct singleTeacherDetailView: View {
                         // group 3: select month and see timesheet
                         Group{
                             HStack{
+                                Text("Choose year")
+                                Picker("Tap me", selection : $selectedYear){
+                                    Text("No Selection").tag(0).frame(width: 100)
+                                    Group{
+                                        Text("2022").tag(1).frame(width: 100)
+                                        Text("2023").tag(2).frame(width: 100)
+                                        Text("2024").tag(3).frame(width: 100)
+                                        Text("2025").tag(4).frame(width: 100)
+                                    }
+                                }
+                                .pickerStyle(MenuPickerStyle())
+                            }
+                            HStack{
                                 // left: picker
                                 Text("Choose month")
                                 
@@ -227,7 +241,8 @@ struct singleTeacherDetailView: View {
                             }
                             
                             Button {
-                                if selectedMonth != 0{
+                                if selectedMonth != 0 && selectedYear != 0{
+                                    daycare.selectedYear = selectedYear
                                     daycare.selectedMonth = selectedMonth
                                     daycare.fetchTeacherTimeSheetGivenMonth()
                                     showTimesheet = true

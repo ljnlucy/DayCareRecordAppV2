@@ -54,6 +54,7 @@ struct singleStudentDetailView: View {
         }
     }
     
+    
     init() {
         //dateFormatter = DateFormatter()
         dateFormatter1.dateStyle = .none
@@ -387,6 +388,7 @@ struct singleStudentDetailView: View {
                             
                             Button {
                                 if selectedMonth != 0 && selectedYear != 0{
+                                    daycare.selectedYear = selectedYear
                                     daycare.selectedMonth = selectedMonth
                                     daycare.fetchStudentTimeSheetGivenMonth()
                                     showTimesheet = true
