@@ -10,13 +10,27 @@ import SwiftUI
 struct StudentListView: View {
     @EnvironmentObject var daycare : DayCareClass
     @State var isAddStudentSheetShow : Bool = false
-
+    @State var checkedInStudent : Int = 0
     var body: some View {
         if daycare.studentList.count < 2 {
             Text("No student available")
         }
         else{
             NavigationView {
+                VStack(alignment : .leading){
+                    Text("Total Student: \(daycare.studentList.count)")
+                    Text("Checked In Student: \(checkedInStudent)")
+                        .onAppear {
+                            checkedInStudent = 0
+                            for i in daycare.studentList{
+                                if i.isCheckedIn == true {
+                                    checkedInStudent = checkedInStudent + 1
+                                }
+                            }
+                        }
+                }
+                .frame(alignment: .bottom)
+                
                 List {
                     ForEach(daycare.studentList){ student in
                         NavigationLink {

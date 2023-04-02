@@ -89,6 +89,8 @@ class DayCareClass: ObservableObject{
                     teachers.append(t)
                 }
                 DispatchQueue.main.async {
+                    // how to sort teacherList based on name
+                    teacherList.so
                     self.teacherList = teachers
                     //print("number of teacher")
                     //print(self.teacherList.count)

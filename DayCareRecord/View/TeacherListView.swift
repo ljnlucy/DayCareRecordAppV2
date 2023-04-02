@@ -10,12 +10,27 @@ import SwiftUI
 struct TeacherListView: View {
     @EnvironmentObject var daycare : DayCareClass
     @State var isAddTeacherSheetShow : Bool = false
+    @State var checkedInTeacher : Int = 0
     var body: some View {
         if daycare.teacherList.count < 2 {
             Text("No teacher available")
         }
         else{
             NavigationView {
+                VStack(alignment : .leading){
+                    Text("Total Teacher: \(daycare.teacherList.count)")
+                    Text("Checked In Teacher: \(checkedInTeacher)")
+                        .onAppear {
+                            checkedInTeacher = 0
+                            for i in daycare.teacherList{
+                                if i.isCheckedIn == true {
+                                    checkedInTeacher = checkedInTeacher + 1
+                                }
+                            }
+                        }
+                }
+                .frame(alignment: .bottom)
+                
                 List {
                     ForEach(daycare.teacherList){ teacher in
                         NavigationLink {
@@ -47,9 +62,6 @@ struct TeacherListView: View {
 
                         }
                     }
-                    
-                    
-                    
                 }
                 .navigationTitle("Teacher List")
                 .toolbar {
@@ -80,6 +92,8 @@ struct TeacherListView: View {
                     addTeacherProfileSheet(isAddTeacherSheetShow : $isAddTeacherSheetShow)
                 }
                 navigationLandingView()
+                
+                
             }
         }
     }
