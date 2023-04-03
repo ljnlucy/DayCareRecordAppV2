@@ -17,7 +17,11 @@ struct ClassroomListView: View {
             NavigationView {
                 List {
                     ForEach(daycare.classRoomList){ c in
-                        Text(c.classRoomName ?? "no classroom name")
+                        NavigationLink {
+                            singleClassrommDetailView(classroom: c)
+                        } label: {
+                            Text(c.classRoomName ?? "no classroom name")
+                        }
                     }
                 }
                 .navigationTitle("Classroom List")

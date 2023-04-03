@@ -28,6 +28,7 @@
 		D850CDE7287B5B6C00CE98BC /* addTeacherProfileSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D850CDE6287B5B6C00CE98BC /* addTeacherProfileSheet.swift */; };
 		D850CDE9287B5E8900CE98BC /* addStudentProfileSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D850CDE8287B5E8900CE98BC /* addStudentProfileSheet.swift */; };
 		D855F96429DA272000AACFE9 /* ClassroomListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D855F96329DA272000AACFE9 /* ClassroomListView.swift */; };
+		D855F96629DA86CD00AACFE9 /* singleClassrommDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D855F96529DA86CC00AACFE9 /* singleClassrommDetailView.swift */; };
 		D8E431C128865D2F008A45B7 /* launchingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E431C028865D2E008A45B7 /* launchingScreen.swift */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,7 @@
 		D850CDE6287B5B6C00CE98BC /* addTeacherProfileSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addTeacherProfileSheet.swift; sourceTree = "<group>"; };
 		D850CDE8287B5E8900CE98BC /* addStudentProfileSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addStudentProfileSheet.swift; sourceTree = "<group>"; };
 		D855F96329DA272000AACFE9 /* ClassroomListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassroomListView.swift; sourceTree = "<group>"; };
+		D855F96529DA86CC00AACFE9 /* singleClassrommDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = singleClassrommDetailView.swift; sourceTree = "<group>"; };
 		D8E431C028865D2E008A45B7 /* launchingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = launchingScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -93,7 +95,6 @@
 				D8040A55287141A7002C0946 /* Info.plist */,
 				D80409E7287133BC002C0946 /* DayCareRecordApp.swift */,
 				D8040A0128713616002C0946 /* View */,
-				D8040A022871361F002C0946 /* ViewModel */,
 				D80409FE28713594002C0946 /* Model */,
 				D80409EB287133BF002C0946 /* Assets.xcassets */,
 				D84235DC289AFCE200D2D2E7 /* GoogleService-Info.plist */,
@@ -127,6 +128,8 @@
 				D855F96329DA272000AACFE9 /* ClassroomListView.swift */,
 				D850931A2878B41A00E487D9 /* singleTeacherDetailView.swift */,
 				D8509322287A85D400E487D9 /* singleStudentDetailView.swift */,
+				D855F96529DA86CC00AACFE9 /* singleClassrommDetailView.swift */,
+				D8040A022871361F002C0946 /* ViewModel */,
 				D8CE88532884AB9A00B94AEC /* Launching login signup group */,
 				D8CE88522884AB6C00B94AEC /* second level view */,
 			);
@@ -253,6 +256,7 @@
 				D850931D2878C2C300E487D9 /* navigationLandingView.swift in Sources */,
 				D8E431C128865D2F008A45B7 /* launchingScreen.swift in Sources */,
 				D8509323287A85D400E487D9 /* singleStudentDetailView.swift in Sources */,
+				D855F96629DA86CD00AACFE9 /* singleClassrommDetailView.swift in Sources */,
 				D80409E8287133BC002C0946 /* DayCareRecordApp.swift in Sources */,
 				D8509321287A84C200E487D9 /* StudentListView.swift in Sources */,
 				D8509325287A8CE300E487D9 /* UpdateProfileSheet.swift in Sources */,

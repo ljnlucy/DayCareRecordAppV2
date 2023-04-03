@@ -34,7 +34,7 @@ struct homeView: View {
                 StudentListView()
                     .tabItem {
                         HStack{
-                            Image(systemName: "studentdesk")
+                            Image(systemName: "person")
                             Text("Student")
                         }
                     }
@@ -44,7 +44,7 @@ struct homeView: View {
                 ClassroomListView()
                     .tabItem {
                         HStack{
-                            Image(systemName: "studentdesk")
+                            Image(systemName: "person.3")
                             Text("Class")
                         }
                     }

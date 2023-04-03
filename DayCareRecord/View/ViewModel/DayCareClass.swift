@@ -892,6 +892,26 @@ class DayCareClass: ObservableObject{
     func updateStudentProfileGuardian2Email(newValue : String) -> Void {
         db.collection("Student List").document(selectedStudent.UID!).setData(["guardian2Email" : newValue], merge: true)
     }
+    
+    func totalStudentInGivenClassroom(classRoom : classRoom) -> Int {
+        var totalStudentNumberInGivenClassroom = 0
+        for s in self.studentList {
+            if s.group == classRoom.classRoomName{
+                totalStudentNumberInGivenClassroom = totalStudentNumberInGivenClassroom + 1
+            }
+        }
+        return totalStudentNumberInGivenClassroom
+    }
+    
+    func totalPresentStudentInGivenClassroom(classRoom : classRoom) -> Int {
+        var totalPresentStudentNumberInGivenClassroom = 0
+        for s in self.studentList {
+            if s.group == classRoom.classRoomName && s.isCheckedIn == true {
+                totalPresentStudentNumberInGivenClassroom = totalPresentStudentNumberInGivenClassroom + 1
+            }
+        }
+        return totalPresentStudentNumberInGivenClassroom
+    }
 }
 
 
