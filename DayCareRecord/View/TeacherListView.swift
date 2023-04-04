@@ -17,21 +17,13 @@ struct TeacherListView: View {
         }
         else{
             NavigationView {
-                VStack(alignment : .leading){
-                    Text("Total Teacher: \(daycare.teacherList.count)")
-                    Text("Checked In Teacher: \(checkedInTeacher)")
-                        .onAppear {
-                            checkedInTeacher = 0
-                            for i in daycare.teacherList{
-                                if i.isCheckedIn == true {
-                                    checkedInTeacher = checkedInTeacher + 1
-                                }
-                            }
-                        }
-                }
-                .frame(alignment: .bottom)
-                
                 List {
+                    VStack(){
+                        Text("Total Teacher: \(daycare.teacherList.count)")
+                        Text("Checked In Teacher: \(daycare.checkedInTeacherNumber)")
+                            .bold()
+                            
+                    }
                     ForEach(daycare.teacherList){ teacher in
                         NavigationLink {
                             // single teacher detail view

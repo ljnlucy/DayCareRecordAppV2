@@ -27,7 +27,9 @@ class DayCareClass: ObservableObject{
     @Published var showErrorMsg1 : Bool = false
     @Published var currentSignedInUserRole : String = ""
     @Published var currentSignedInUserUID : String = ""
-    
+    @Published var checkedInTeacherNumber : Int = 0
+    @Published var checkedInStudentNumber : Int = 0
+
     var listener1 : ListenerRegistration?
     var listener2 : ListenerRegistration?
     var listener3 : ListenerRegistration?
@@ -80,6 +82,7 @@ class DayCareClass: ObservableObject{
                 }
                 DispatchQueue.main.async {
                     self.teacherList = teachers.sorted{$0.name! < $1.name!}
+                    self.updatecheckedInTeacherNumber()
                     //print("number of teacher")
                     //print(self.teacherList.count)
                 }
@@ -138,6 +141,25 @@ class DayCareClass: ObservableObject{
         }
     }
     
+    func updatecheckedInTeacherNumber () -> Void{
+        var tn : Int = 0
+        for t in self.teacherList{
+            if t.isCheckedIn == true{
+                tn = tn + 1
+            }
+        }
+        self.checkedInTeacherNumber = tn
+    }
+    func updatecheckedInStudentNumber () -> Void{
+        var tn : Int = 0
+        for t in self.studentList{
+            if t.isCheckedIn == true{
+                tn = tn + 1
+            }
+        }
+        self.checkedInStudentNumber = tn
+    }
+
     
     func createTeacherProfile(name : String, UID : String, nickName : String, originalImage : UIImage) -> Void {
         // reduce image size
@@ -470,6 +492,9 @@ class DayCareClass: ObservableObject{
                     
                     // update selected teacher
                     self.updateSelectedTeacherInfo()
+                    
+                    // update checked in teacher amount
+                    self.updatecheckedInTeacherNumber()
                   
                 }
             }
