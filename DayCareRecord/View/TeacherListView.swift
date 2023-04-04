@@ -18,12 +18,13 @@ struct TeacherListView: View {
         else{
             NavigationView {
                 List {
-                    VStack(){
+                    VStack(alignment: .trailing){
                         Text("Total Teacher: \(daycare.teacherList.count)")
                         Text("Checked In Teacher: \(daycare.checkedInTeacherNumber)")
                             .bold()
-                            
                     }
+                    .frame(maxWidth: .infinity)
+                    
                     ForEach(daycare.teacherList){ teacher in
                         NavigationLink {
                             // single teacher detail view

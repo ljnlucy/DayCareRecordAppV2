@@ -25,6 +25,7 @@ struct StudentListView: View {
                             .bold()
                         Text("Checked In Student: \(daycare.checkedInStudentNumber)")
                     }
+                    .frame(maxWidth: .infinity)
                     ForEach(daycare.studentList){ student in
                         NavigationLink {
                             // single teacher detail view
