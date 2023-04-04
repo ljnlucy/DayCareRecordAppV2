@@ -528,6 +528,8 @@ class DayCareClass: ObservableObject{
                     self.studentList = students
                     // update selected teacher
                     self.updateSelectedStudentInfo()
+                    
+                    self.updatecheckedInStudentNumber()
                   
                 }
             }
