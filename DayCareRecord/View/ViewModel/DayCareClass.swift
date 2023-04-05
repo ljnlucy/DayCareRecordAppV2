@@ -488,7 +488,7 @@ class DayCareClass: ObservableObject{
                 }
                 DispatchQueue.main.async {
                     // update teacher list
-                    self.teacherList = teachers
+                    self.teacherList = teachers.sorted{$0.name! < $1.name!}
                     
                     // update selected teacher
                     self.updateSelectedTeacherInfo()
@@ -525,7 +525,7 @@ class DayCareClass: ObservableObject{
                 }
                 DispatchQueue.main.async {
                     // update teacher list
-                    self.studentList = students
+                    self.studentList = students.sorted{$0.studentName! < $1.studentName!}
                     // update selected teacher
                     self.updateSelectedStudentInfo()
                     

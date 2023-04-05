@@ -20,12 +20,21 @@ struct StudentListView: View {
                 
                 
                 List {
-                    VStack(alignment : .trailing){
-                        Text("Total Student: \(daycare.studentList.count)")
-                            .bold()
-                        Text("Checked In Student: \(daycare.checkedInStudentNumber)")
+                    //VStack(alignment : .leading){
+                    HStack{
+                        Spacer()
+                        VStack(alignment: . trailing){
+                            Text("Total Student: \(daycare.studentList.count)")
+                                
+                            Text("Checked In Student: \(daycare.checkedInStudentNumber)")
+                                .foregroundColor(.gray)
+                        }
+                        
                     }
-                    .frame(maxWidth: .infinity)
+                        
+                        
+                    //}
+                    //.frame(maxWidth: .infinity)
                     ForEach(daycare.studentList){ student in
                         NavigationLink {
                             // single teacher detail view
